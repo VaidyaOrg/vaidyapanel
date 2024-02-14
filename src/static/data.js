@@ -1,11 +1,11 @@
 // navigation Data
 export const navItems = [
     {
-      title: "Home",
+      title: "Medicine",
       url: "/",
     },
     {
-      title: "Personal Care",
+      title: "Personal care",
       url: "/best-selling",
     },
     {
