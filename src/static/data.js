@@ -1,19 +1,19 @@
 // navigation Data
 export const navItems = [
     {
-      title: "Home",
+      title: "Medicine",
       url: "/",
     },
     {
-      title: "Best Selling",
+      title: "Personal care",
       url: "/best-selling",
     },
     {
-      title: "Products",
+      title: "Lab Tests",
       url: "/products",
     },
     {
-      title: "Events",
+      title: "Health Tips",
       url: "/events",
     },
     {
