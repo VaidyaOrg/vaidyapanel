@@ -30,7 +30,6 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
-  const [searchBarActive, setSearchBarActive] = useState(false); // State to manage search bar's border color
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -68,11 +67,7 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className={`h-[40px] w-full px-2 rounded-md ${
-                searchBarActive ? "border-[#fff]" : "border-[#49B9C8]"
-              }`} // Dynamic border color based on searchBarActive state
-              onFocus={() => setSearchBarActive(true)} // Change border color to black when focused
-              onBlur={() => setSearchBarActive(false)} // Change border color to white when blurred
+              className={`h-[40px] w-full px-2 rounded-md border-[#000]`}
             />
             <AiOutlineSearch
               size={30}
@@ -274,20 +269,13 @@ const Header = ({ activeHeading }) => {
                 />
               </div>
 
-              <div className="my-8 w-[92%] m-auto h-[40px relative]">
+              <div className="my-8 w-[92%] m-auto h-[40px] relative">
               <input
   type="text"
   placeholder="Search Product..."
   value={searchTerm}
   onChange={handleSearchChange}
-  className={`h-[40px] w-full px-2 rounded-md boxShadow-[0px 0px 10px rgba(1, 1, 1, 0.5)] ${
-    searchBarActive ? "border-black" : "border-[#fff]"
-  }`}
-  onFocus={() => setSearchBarActive(true)}
-  onBlur={() => setSearchBarActive(false)}
-  style={{
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)"
-  }}
+  className={`h-[40px] w-full px-2 rounded-md border-t-100 border-blue-500`}
 />
                 {searchData && (
                   <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-3">
