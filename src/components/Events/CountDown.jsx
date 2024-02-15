@@ -43,7 +43,7 @@ const CountDown = ({ data }) => {
     }
 
     return (
-      <span className="text-[25px] text-[#475ad2]">
+      <span className="text-[25px] text-[#49B9C8]">
         {timeLeft[interval]} {interval}{" "}
       </span>
     );
