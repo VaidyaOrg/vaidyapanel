@@ -20,9 +20,7 @@ const Hero = () => {
           Best Collection for <br /> pharmetuticals
         </h1>
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba] text-right">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br /> Beatae,
-          assumenda? Quisquam itaque exercitationem  <br />labore vel, dolore
-          quidem  asperiores, laudantium  <br /> temporibus soluta optio consequatur aliquam  <br /> deserunt officia. Dolorum saepe nulla provident.
+        Discover seamless medication management from the <br /> comfort of your home with our hassle-free pharmacy <br /> delivery service. Enjoy the peace of mind knowing your <br /> prescriptions are delivered promptly and securely, so <br />you can focus on what matters most – your well-being.
         </p>
         <Link to="/products" className="inline-block mt-5">
           <div className={`${styles.button}`}>

@@ -592,15 +592,15 @@ export const navItems = [
   
   export const footerProductLinks = [
     {
-      name: "Medicines",
+      name: "Medicine",
       link: "/about"
     },
     {
-      name: "Personal Care",
+      name: "Best Selling",
       link: "/carrers"
     },
     {
-      name: "Lab Tests",
+      name: "Products",
     },
   ];
   
@@ -613,6 +613,9 @@ export const navItems = [
     },
     {
       name: "Join Vaidya",
+    },
+    {
+      name: "Events"
     },
   ];
   
