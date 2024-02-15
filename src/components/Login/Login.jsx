@@ -35,14 +35,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Login to your account
-        </h2>
-      </div>
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('https://img.freepik.com/free-photo/medicine-capsules-global-health-with-geometric-pattern-digital-remix_53876-126742.jpg?w=996&t=st=1708013786~exp=1708014386~hmac=13d4b4f1a6dd2853b6950ba0149d43b83690e348ae74bef3671d9d2647cdcc98')] bg-cover">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+            <h2 className="mt-4 pb-4 text-center text-3xl font-extrabold text-gray-900">
+              Login to your account
+            </h2>
+          </div>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
@@ -111,9 +111,9 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-sm">
-                <a st
+                <a
                   href=".forgot-password"
-                  className="font-medium text-blue-600 hover:text-blue-500"
+                  className="font-medium text-[#49B9C8] hover:underline"
                 >
                   Forgot your password?
                 </a>
@@ -122,14 +122,14 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-1px text-sm font-medium rounded-md text-[#49B9C8] bg-blue-600 hover:bg-[#49B9C8] hover:text-white"
               >
                 Submit
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="text-blue-600 pl-2">
+              <Link to="/sign-up" className="text-[#49B9C8] hover:underline pl-2">
                 Sign Up
               </Link>
             </div>

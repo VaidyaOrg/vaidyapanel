@@ -44,14 +44,14 @@ const Singup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Register as a new user
-        </h2>
-      </div>
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('https://img.freepik.com/free-photo/medicine-capsules-global-health-with-geometric-pattern-digital-remix_53876-126742.jpg?w=996&t=st=1708013786~exp=1708014386~hmac=13d4b4f1a6dd2853b6950ba0149d43b83690e348ae74bef3671d9d2647cdcc98')] bg-cover">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+            <h2 className="mt-6 pb-8 text-center text-3xl font-extrabold text-gray-900">
+              Register as a new user
+            </h2>
+          </div>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
@@ -147,7 +147,7 @@ const Singup = () => {
                   htmlFor="file-input"
                   className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                 >
-                  <span>Upload a file</span>
+                  <span>Upload profile pic</span>
                   <input
                     type="file"
                     name="avatar"
@@ -163,14 +163,14 @@ const Singup = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-1px text-sm font-medium rounded-md text-[#49B9C8] hover:bg-[#49B9C8] hover:text-white"
               >
                 Submit
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
-              <Link to="/login" className="text-blue-600 pl-2">
+              <Link to="/login" className="text-[#49B9C8] hover:underline pl-2">
                 Sign In
               </Link>
             </div>

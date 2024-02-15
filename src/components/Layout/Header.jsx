@@ -62,14 +62,14 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           {/* search box */}
-          <div className="w-[50%] relative">
+          <div className="w-[50%] relative border border-[#49B9C8] rounded-lg">
             <input
               type="text"
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearchChange}
               className={`h-[40px] w-full px-2 rounded-md ${
-                searchBarActive ? "border-[#000]" : "border-[#fff]"
+                searchBarActive ? "border-[#fff]" : "border-[#49B9C8]"
               }`} // Dynamic border color based on searchBarActive state
               onFocus={() => setSearchBarActive(true)} // Change border color to black when focused
               onBlur={() => setSearchBarActive(false)} // Change border color to white when blurred
