@@ -385,8 +385,8 @@ const SellerInbox = ({
                   <div>
                     <div
                       className={`w-max p-2 rounded ${
-                        item.sender === sellerId ? "bg-[#000]" : "bg-[#38c776]"
-                      } text-[#fff] h-min`}
+                        item.sender === sellerId ? "bg-[#49B9C8]" : "bg-[#e7e1e1]"
+                      } text-[#000] h-min`}
                     >
                       <p>{item.text}</p>
                     </div>

@@ -15,16 +15,8 @@ const EventsPage = () => {
       ) : (
         <div>
           <Header activeHeading={4} />
-          {allEvents && allEvents.length > 0 ? (
-            allEvents.map((event, index) => (
-              <EventCard key={index} active={true} data={event} />
-            ))
-          ) : (
-            <div>
-              <p>NO CURRENT EVENTS</p>
-              <p>STAY TUNED FOR MORE</p>
-            </div>
-          )}
+          <EventCard active={true} data={allEvents && allEvents[0]} />
+          <Footer></Footer>
         </div>
       )}
       <Footer/>
