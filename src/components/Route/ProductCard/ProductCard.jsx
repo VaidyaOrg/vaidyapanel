@@ -62,7 +62,7 @@ const ProductCard = ({ data,isEvent }) => {
 
   return (
     <>
-      <div className="w-full h-[370px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer">
+      <div className="w-[300px] h-[420px] bg-white rounded-lg shadow-lg p-[30px] relative cursor-pointer">
         <div className="flex justify-end"></div>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <img
@@ -72,14 +72,14 @@ const ProductCard = ({ data,isEvent }) => {
           />
         </Link>
         <Link to={`/shop/preview/${data?.shop._id}`}>
-          <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
+          <h5 className={`pt-5 h-[60px] ${styles.shop_name}`}>{data.shop.name}</h5>
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
-          <h4 className="pb-3 font-[500]">
+          <h4 className="pb-3 h-[60px] font-[500]">
             {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
           </h4>
 
-          <div className="flex">
+          <div className="flex mb-[10px]">
           <Ratings rating={data?.ratings} />
           </div>
 
