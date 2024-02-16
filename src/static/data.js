@@ -13,16 +13,16 @@ export const navItems = [
       url: "/products",
     },
     {
-      title: "Health Tips",
-      url: "/blogs",
-    },
-    {
       title: "Events",
       url: "/events",
     },
     {
       title: "FAQ",
       url: "/faq",
+    },
+    {
+      title: "Health Tips",
+      url: "/blogs",
     },
   ];
   

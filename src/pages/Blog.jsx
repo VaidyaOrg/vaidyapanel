@@ -139,7 +139,7 @@ function Blogs() {
   return (
     <div className="mt-8 min-h-screen overflow-hidden ">
 
-    <Header activeHeading={1} />
+    <Header activeHeading={6} />
       <div
         style={{
           display: "flex",
