@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/styles";
-import { AiOutlineArrowRight, AiOutlineMoneyCollect } from "react-icons/ai";
+import { AiOutlineMoneyCollect } from "react-icons/ai";
 import { MdBorderClear } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@material-ui/data-grid";
-import { Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrdersOfAdmin } from "../../redux/actions/order";
 import Loader from "../Layout/Loader";
@@ -112,7 +111,7 @@ const AdminDashboardMain = () => {
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{sellers && sellers.length}</h5>
             <Link to="/admin-sellers">
-              <h5 className="pt-4 pl-2 text-[#077f9c]">View Sellers</h5>
+              <h5 className="pt-4 pl-2 text-[#49B9C8]">View Sellers</h5>
             </Link>
           </div>
   
@@ -131,7 +130,7 @@ const AdminDashboardMain = () => {
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{adminOrders && adminOrders.length}</h5>
             <Link to="/admin-orders">
-              <h5 className="pt-4 pl-2 text-[#077f9c]">View Orders</h5>
+              <h5 className="pt-4 pl-2 text-[#49B9C8]">View Orders</h5>
             </Link>
           </div>
         </div>
