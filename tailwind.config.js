@@ -18,7 +18,9 @@ module.exports = {
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
-      'texttheme':'#49B9C8',
+      "regal-blue": "#243c5a",
+        themeText: "#0E4252",
+        themebg: "#49B9C8",
     },
     extend: {
       screens: {

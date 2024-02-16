@@ -21,6 +21,8 @@ import {
   OrderDetailsPage,
   TrackOrderPage,
   UserInbox,
+  Blog,
+  IndiBlogs
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -44,7 +46,8 @@ import {
   AdminDashboardOrders,
   AdminDashboardProducts,
   AdminDashboardEvents,
-  AdminDashboardWithdraw
+  AdminDashboardWithdraw,
+  AdminDashboardBlogs
 } from "./routes/AdminRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -124,6 +127,18 @@ const App = () => {
             <ProtectedRoute>
               <ProfilePage />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/blogs"
+          element={
+              <Blog />
+          }
+        />
+        <Route
+          path="/blogs/:id"
+          element={
+              <IndiBlogs />
           }
         />
         <Route
@@ -313,6 +328,14 @@ const App = () => {
           element={
             <ProtectedAdminRoute>
               <AdminDashboardWithdraw />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-blogs"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardBlogs />
             </ProtectedAdminRoute>
           }
         />

@@ -13,6 +13,10 @@ export const navItems = [
       url: "/products",
     },
     {
+      title: "Health Tips",
+      url: "/blogs",
+    },
+    {
       title: "Events",
       url: "/events",
     },
@@ -593,14 +597,15 @@ export const navItems = [
   export const footerProductLinks = [
     {
       name: "Medicine",
-      link: "/about"
+      link: "/"
     },
     {
       name: "Best Selling",
-      link: "/carrers"
+      link: "/best-selling"
     },
     {
       name: "Products",
+      link: "/products"
     },
   ];
   
@@ -610,6 +615,7 @@ export const navItems = [
     },
     {
       name: "Health Tips",
+      link : "/blogs"
     },
     {
       name: "Join Vaidya",
