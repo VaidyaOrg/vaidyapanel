@@ -15,10 +15,6 @@ const EventsPage = () => {
       ) : (
         <div>
           <Header activeHeading={4} />
-<<<<<<< HEAD
-          <EventCard active={true} data={allEvents && allEvents[0]} />
-          <Footer></Footer>
-=======
           {allEvents && allEvents.length > 0 ? (
             allEvents.map((event, index) => (
               <EventCard key={index} active={true} data={event} />
@@ -29,7 +25,6 @@ const EventsPage = () => {
               <p>STAY TUNED FOR MORE</p>
             </div>
           )}
->>>>>>> 27ab73c31028afeb1d4bc9ec81dc3b4b06fd8415
         </div>
       )}
       <Footer/>
