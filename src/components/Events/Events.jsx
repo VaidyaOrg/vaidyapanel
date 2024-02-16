@@ -12,8 +12,13 @@ const Events = () => {
       !isLoading && (
         <div className={`${styles.section}`}>
       <div className={`${styles.heading}`}>
-        <h1>Upcoming Events</h1>
-      </div>
+          <h1 className="texthead leading-relaxed font-[600] mb-2 ">
+          Upcoming{" "}
+          <span className="bg-opacity-50 rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            Events
+          </span>
+        </h1>
+        </div>
 
       <div className="w-full grid">
          {

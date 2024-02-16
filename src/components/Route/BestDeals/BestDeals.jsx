@@ -18,7 +18,12 @@ const BestDeals = () => {
     <div>
       <div className={`${styles.section}`}>
         <div className={`${styles.heading}`}>
-          <h1>Best Deals</h1>
+          <h1 className="texthead leading-relaxed font-[600] mb-2 ">
+          Best{" "}
+          <span className="bg-opacity-50 rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            Deals
+          </span>
+        </h1>
         </div>
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12 border-0">
            {

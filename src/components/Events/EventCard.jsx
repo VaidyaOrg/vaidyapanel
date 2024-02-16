@@ -34,8 +34,8 @@ const EventCard = ({ active, data }) => {
         <img src={`${data.images[0]?.url}`} alt="" />
       </div>
       <div className="w-full pr-36 lg:[w-50%] flex flex-col justify-center">
-        <h2 className={`${styles.productTitle}`}>{data.name}</h2>
-        <p>{data.description}</p>
+        <h2 className={`${styles.productTitle} pt-12 pb-6`}>{data.name}</h2>
+        <p >{data.description}</p>
         <div className="flex py-2 justify-between">
           <div className="flex">
             <h5 className="font-[500] text-[18px] text-[#d55b45] pr-3 line-through">
@@ -51,7 +51,7 @@ const EventCard = ({ active, data }) => {
         </div>
         <CountDown data={data} />
         <br />
-        <div className="flex items-center">
+        <div className="flex items-center pb-12">
           <Link to={`/product/${data._id}?isEvent=true`}>
             <div className={`${styles.button} text-[#fff]`}>See Details</div>
           </Link>
