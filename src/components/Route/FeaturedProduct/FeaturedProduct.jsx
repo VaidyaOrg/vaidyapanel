@@ -7,7 +7,7 @@ const FeaturedProduct = () => {
   const { allProducts } = useSelector((state) => state.products);
 
   // Limiting the number of products to be displayed to 4
-  const featuredProducts = allProducts.slice(0, 4);
+  const featuredProducts = allProducts ? allProducts.slice(0, 4) : [];
 
   return (
     <div>
