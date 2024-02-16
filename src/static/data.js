@@ -20,6 +20,10 @@ export const navItems = [
       title: "FAQ",
       url: "/faq",
     },
+    {
+      title: "Health Tips",
+      url: "/blogs",
+    },
   ];
   
   // branding data
@@ -593,14 +597,15 @@ export const navItems = [
   export const footerProductLinks = [
     {
       name: "Medicine",
-      link: "/about"
+      link: "/"
     },
     {
       name: "Best Selling",
-      link: "/carrers"
+      link: "/best-selling"
     },
     {
       name: "Products",
+      link: "/products"
     },
   ];
   
@@ -610,6 +615,7 @@ export const navItems = [
     },
     {
       name: "Health Tips",
+      link : "/blogs"
     },
     {
       name: "Join Vaidya",

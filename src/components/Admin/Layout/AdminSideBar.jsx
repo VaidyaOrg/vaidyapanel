@@ -2,7 +2,8 @@ import React from "react";
 import { FiShoppingBag } from "react-icons/fi";
 import {GrWorkshop} from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
-import { CiMoneyBill, CiSettings } from "react-icons/ci";
+import { CiMoneyBill } from "react-icons/ci";
+import { IoBookOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsHandbag } from "react-icons/bs";
@@ -145,6 +146,21 @@ const AdminSideBar = ({ active }) => {
             }`}
           >
             Settings
+          </h5>
+        </Link>
+      </div>
+      <div className="w-full flex items-center p-4">
+        <Link to="/admin-blogs" className="w-full flex items-center">
+          <IoBookOutline
+            size={30}
+            color={`${active === 9 ? "#49B9C8" : "#555"}`}
+          />
+          <h5
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 9 ? "text-[#49B9C8]" : "text-[#555]"
+            }`}
+          >
+            All Blogs
           </h5>
         </Link>
       </div>

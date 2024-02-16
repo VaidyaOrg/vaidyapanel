@@ -3,6 +3,7 @@ import { AiOutlineGift } from 'react-icons/ai'
 import { BiMessageSquareDetail } from 'react-icons/bi'
 import { FiPackage, FiShoppingBag } from 'react-icons/fi'
 import { MdOutlineLocalOffer } from 'react-icons/md'
+import { IoBookOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -23,6 +24,13 @@ const AdminHeader = () => {
         <div className="flex items-center mr-4">
           <Link to="/dashboard/cupouns" className="800px:block hidden">
             <AiOutlineGift
+              color="#555"
+              size={30}
+              className="mx-5 cursor-pointer"
+            />
+          </Link>
+          <Link to="/admin-blogs" className="800px:block hidden">
+            <IoBookOutline
               color="#555"
               size={30}
               className="mx-5 cursor-pointer"
