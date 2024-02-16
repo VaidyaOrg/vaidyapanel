@@ -134,11 +134,10 @@ const Checkout = () => {
           />
         </div>
       </div>
-      <div
-        className={`${styles.button} w-[150px] 800px:w-[280px] mt-10`}
+      <div 
         onClick={paymentSubmit}
       >
-        <h5 className="text-white">Go to Payment</h5>
+        <h5 className="group relative w-full h-[40px] flex justify-center mt-8 py-2 px-20 border border-1px text-sm font-medium rounded-md text-[#49B9C8] hover:bg-[#49B9C8] hover:text-white">Go to Payment</h5>
       </div>
     </div>
   );
@@ -327,7 +326,7 @@ const CartData = ({
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
-          - {discountPercentenge ? "$" + discountPercentenge.toString() : null}
+          - {discountPercentenge ? "₹" + discountPercentenge.toString() : null}
         </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">${totalPrice}</h5>
@@ -342,7 +341,7 @@ const CartData = ({
           required
         />
         <input
-          className={`w-full h-[40px] border border-[#f63b60] text-center text-[#f63b60] rounded-[3px] mt-8 cursor-pointer`}
+          className={`w-full h-[40px] border border-[#49B9C8] text-center font-semibold text-[#49B9C8] hover:bg-[#49B9C8] hover:text-white rounded-[3px] mt-8 cursor-pointer`}
           required
           value="Apply code"
           type="submit"

@@ -228,7 +228,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        {/* <div className="border-b border-gray-200 pb-4">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(6)}
@@ -273,7 +273,7 @@ const Faq = () => {
               </p>
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className="border-b border-gray-200 pb-4">
           <button
