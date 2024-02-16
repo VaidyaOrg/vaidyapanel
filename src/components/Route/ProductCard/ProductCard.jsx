@@ -71,13 +71,13 @@ const ProductCard = ({ data,isEvent }) => {
             className="w-full h-[170px] object-contain"
           />
         </Link>
-        <Link to={`/shop/preview/${data?.shop._id}`}>
-          <h5 className={`pt-5 h-[60px] ${styles.shop_name}`}>{data.shop.name}</h5>
-        </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
-          <h4 className="pb-3 h-[60px] font-[500]">
+          <h4 className="pt-6 h-[60px] font-[500]">
             {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
           </h4>
+          <Link to={`/shop/preview/${data?.shop._id}`}>
+          <h5 className={`pt-6 text-[#49B9C8] h-[60px] ${styles.shop_name}`}>{data.shop.name}</h5>
+        </Link>
 
           <div className="flex mb-[10px]">
           <Ratings rating={data?.ratings} />
