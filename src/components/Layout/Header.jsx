@@ -40,7 +40,7 @@ const Header = ({ activeHeading }) => {
       allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
-    setSearchData(filteredProducts);
+      setSearchData(filteredProducts.slice(0, 5));
   };
 
   window.addEventListener("scroll", () => {
@@ -74,7 +74,7 @@ const Header = ({ activeHeading }) => {
               className="absolute right-2 top-1.5 cursor-pointer"
             />
             {searchData && searchData.length !== 0 ? (
-              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+              <div className="absolute  bg-[#fff] min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
                 {searchData &&
                   searchData.map((i, index) => {
                     return (
@@ -86,6 +86,7 @@ const Header = ({ activeHeading }) => {
                             className="w-[40px] h-[40px] mr-[10px]"
                           />
                           <h1>{i.name}</h1>
+                          
                         </div>
                       </Link>
                     );
