@@ -61,7 +61,7 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           {/* search box */}
-          <div className="w-[50%] relative">
+          <div className="w-[50%] relative border border-[#49B9C8] rounded-lg">
             <input
               type="text"
               placeholder="Search Product..."
