@@ -25,7 +25,7 @@ const BestSellingPage = () => {
     ) : (
       <div>
       <div>
-          <Header activeHeading={4} />
+          <Header activeHeading={2} />
           <div style={{
           display: "flex",
           justifyContent: "center",

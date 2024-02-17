@@ -7,7 +7,7 @@ const FAQPage = () => {
   return (
     <div>
       <div>
-          <Header activeHeading={4} />
+          <Header activeHeading={5} />
           <div style={{
           display: "flex",
           justifyContent: "center",
@@ -186,8 +186,7 @@ const Faq = () => {
             <div className="mt-4">
               <p className="text-base text-gray-500">
                 You can contact our customer support team by emailing us at
-                support@myecommercestore.com, or by calling us at (555) 123-4567
-                between the hours of 9am and 5pm EST, Monday through Friday.
+                sudeep160403@gmail.com.
               </p>
             </div>
           )}

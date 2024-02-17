@@ -33,7 +33,6 @@ const EventsPage = () => {
           <EventCard active={true} data={allEvents && allEvents[0]} />
         </div>
       )}
-      <Footer/>
     </>
   );
 };

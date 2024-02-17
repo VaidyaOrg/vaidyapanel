@@ -148,7 +148,7 @@ function Blogs() {
   return (
     <div className="mt-8 min-h-screen overflow-hidden ">
     <div>
-          <Header activeHeading={4} />
+          <Header activeHeading={6} />
           <div style={{
           display: "flex",
           justifyContent: "center",
@@ -163,7 +163,7 @@ function Blogs() {
         </h1>
       </div>
       </div>
-      <div className="flex justify-between p-20">
+      <div className="flex justify-between p-10">
         <div
           className="text-center"
           onClick={() => handleTagFilter("skincare")}
@@ -221,7 +221,7 @@ function Blogs() {
             margin: "10px",
             // width: "50vw",
             borderRadius: "50px",
-            background: "rgba(72.64, 185.05, 200.37, 0.75)",
+            background: "#49B9C8",
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             justifyContent: "center",
           }}
@@ -263,17 +263,35 @@ function Blogs() {
       <div className=" md:flex flex-row justify-between mx-4 mb-4">
         <div className="mt-8 animate__animated animate__backInLeft animate__delay-1s md:w-4/5 md:pl-[120px]">
           <div className="text-black border-b-4 pb-8 p-2 pt-8 border-white border-opacity-50 text-xl md:text-[45px] font-semibold">
-            Latest Blogs
+          <div style={{
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
+            
+          <h1 className="texthead leading-relaxed font-[600]">
+          Latest{" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            Blogs
+          </span>
+        </h1>
+        </div>
           </div>
           <div className="animate__animated animate__fadeInLeft animate__delay-2s">
             {getFilteredNewBlogsArray().length > 0 ? (
               getFilteredNewBlogsArray().map((article) => (
                 <div
-                  className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
+                  className="mt-8 md:flex bg-white p-6 rounded-lg md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
                   key={article._id}
                   onClick={() => navigate(`/blogs/${article._id}`)}
                 >
                   <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl ">
+                  <div className="mt-4 text-black text-sm md:text-[28px] font-medium md:leading-9">
+                      {article.title}
+                    </div>
+                    <div className="mt-4 text-black text-opacity-50 text-sm md:text-lg font-normal md:leading-[27px]">
+                      {article.description}
+                    </div>
                     <div className="flex gap-4 items-center">
                       <div className="flex">
                         <div className="bg-gradient-to-r px-3 py-2 from-sky-500 to-sky-600 rounded-tl-md rounded-bl-md items-center text-center text-black text-[13px] font-bold uppercase leading-none tracking-wide">
@@ -286,12 +304,6 @@ function Blogs() {
                       <div className="text-center text-black text-[13px] font-bold leading-none">
                         {article.time} read
                       </div>
-                    </div>
-                    <div className="mt-8 text-black text-sm md:text-[28px] font-medium md:leading-9">
-                      {article.title}
-                    </div>
-                    <div className="text-black text-opacity-50 text-sm md:text-lg font-normal md:leading-[27px]">
-                      {article.description}
                     </div>
                   </div>
                   <div>
@@ -308,9 +320,19 @@ function Blogs() {
             )}
           </div>
           <div>
-            <div className="text-black border-b-4 pb-8 p-2 pt-8 border-white border-opacity-50 text-xl md:text-[45px] font-semibold">
-              Old Blogs
-            </div>
+          <div style={{
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
+            
+          <h1 className="texthead leading-relaxed font-[600]">
+          Older{" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            Blogs
+          </span>
+        </h1>
+        </div>
             {getFilteredOlderBlogsArray().length > 0 ? (
               getFilteredOlderBlogsArray().map((article) => (
                 <div
