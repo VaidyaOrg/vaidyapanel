@@ -4,6 +4,7 @@ import EventCard from "../components/Events/EventCard";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 import Footer from "../components/Layout/Footer";
+import Events from "../components/Events/Events";
 
 const EventsPage = () => {
   const { allEvents, isLoading } = useSelector((state) => state.events);
@@ -15,8 +16,7 @@ const EventsPage = () => {
       ) : (
         <div>
           <Header activeHeading={4} />
-          <EventCard active={true} data={allEvents && allEvents[0]} />
-          <Footer></Footer>
+          <Events />
         </div>
       )}
       <Footer/>
