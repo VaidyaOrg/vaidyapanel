@@ -72,7 +72,7 @@ const ProductCard = ({ data,isEvent }) => {
           />
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
-          <h4 className="pt-6 h-[60px] font-[500] font-semibold">
+          <h4 className="pt-6 h-[60px] font-semibold">
             {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
           </h4>
           <Link to={`/shop/preview/${data?.shop._id}`}>

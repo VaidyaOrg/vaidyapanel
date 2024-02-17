@@ -4,6 +4,7 @@ import {
   AiOutlineHeart,
   AiOutlineMessage,
   AiOutlineShoppingCart,
+  AiFillStar,
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -118,13 +119,13 @@ const ProductDetails = ({ data }) => {
         <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
-              <div className="w-full 800px:w-[50%]">
+              <div className="w-full 800px:w-[50%] pl-60 flex flex-col justify-between">
                 <img
                   src={`${data && data.images[select]?.url}`}
                   alt=""
-                  className="w-[80%]"
+                  className="w-[40%]"
                 />
-                <div className="w-full flex">
+                <div className="w-[15vw] h-[10vh] gap-8 flex pt-2">
                   {data &&
                     data.images.map((i, index) => (
                       <div
@@ -135,7 +136,7 @@ const ProductDetails = ({ data }) => {
                         <img
                           src={`${i?.url}`}
                           alt=""
-                          className="h-[200px] overflow-hidden mr-3 mt-3"
+                          className=" overflow-hidden bg-contain w-[7.5vw] h-[10vh]"
                           onClick={() => setSelect(index)}
                         />
                       </div>
@@ -147,9 +148,28 @@ const ProductDetails = ({ data }) => {
                   ></div>
                 </div>
               </div>
+              <div className="pr-20 pt-6">
+                  {click ? (
+                    <AiFillHeart
+                      size={30}
+                      className="cursor-pointer"
+                      onClick={() => removeFromWishlistHandler(data)}
+                      color={click ? "red" : "#333"}
+                      title="Remove from wishlist"
+                    />
+                  ) : (
+                    <AiOutlineHeart
+                      size={30}
+                      className="cursor-pointer"
+                      onClick={() => addToWishlistHandler(data)}
+                      color={click ? "red" : "#333"}
+                      title="Add to wishlist"
+                    />
+                  )}
+              </div>
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p>{data.description}</p>
+                <p className="text-base pb-5">{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
                     {data.discountPrice}$
@@ -158,11 +178,19 @@ const ProductDetails = ({ data }) => {
                     {data.originalPrice ? data.originalPrice + "$" : null}
                   </h3>
                 </div>
+                <h5 className=" pt-3 text-[15px] flex flex-row">
+                  <AiFillStar className="text-[25px] text-[#FFD700]"></AiFillStar>
+                  <AiFillStar className="text-[25px] text-[#FFD700]"></AiFillStar>
+                  <AiFillStar className="text-[25px] text-[#FFD700]"></AiFillStar>
+                  <AiFillStar className="text-[25px] text-[#FFD700]"></AiFillStar>
+                  <AiFillStar className="text-[25px] text-[#FFD700]"></AiFillStar>
+                      <p className="pl-3 font-semibold">({averageRating}/5) Ratings</p>
+                </h5>
 
                 <div className="flex items-center mt-12 justify-between pr-3">
                   <div>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-black font-bold rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out bg-[#49B9C8] opacity-50 "
                       onClick={decrementCount}
                     >
                       -
@@ -171,31 +199,13 @@ const ProductDetails = ({ data }) => {
                       {count}
                     </span>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-black font-bold rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out bg-[#49B9C8] opacity-50"
                       onClick={incrementCount}
                     >
                       +
                     </button>
                   </div>
-                  <div>
-                    {click ? (
-                      <AiFillHeart
-                        size={30}
-                        className="cursor-pointer"
-                        onClick={() => removeFromWishlistHandler(data)}
-                        color={click ? "red" : "#333"}
-                        title="Remove from wishlist"
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        size={30}
-                        className="cursor-pointer"
-                        onClick={() => addToWishlistHandler(data)}
-                        color={click ? "red" : "#333"}
-                        title="Add to wishlist"
-                      />
-                    )}
-                  </div>
+                  
                 </div>
                 <div
                   className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
@@ -219,12 +229,9 @@ const ProductDetails = ({ data }) => {
                         {data.shop.name}
                       </h3>
                     </Link>
-                    <h5 className="pb-3 text-[15px]">
-                      ({averageRating}/5) Ratings
-                    </h5>
                   </div>
                   <div
-                    className={`${styles.button} bg-[#6443d1] mt-4 !rounded !h-11`}
+                    className={`${styles.button} bg-[#49B9C8] mt-4 !rounded !h-11`}
                     onClick={handleMessageSubmit}
                   >
                     <span className="text-white flex items-center">
@@ -330,7 +337,7 @@ const ProductDetailsInfo = ({
 
           <div className="w-full flex justify-center">
             {data && data.reviews.length === 0 && (
-              <h5>No Reviews have for this product!</h5>
+              <h5>No Reviews for this product!</h5>
             )}
           </div>
         </div>

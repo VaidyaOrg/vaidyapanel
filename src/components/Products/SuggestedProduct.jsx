@@ -19,9 +19,10 @@ const SuggestedProduct = ({ data }) => {
       {data ? (
         <div className={`p-4 ${styles.section}`}>
           <h2
-            className={`${styles.heading} text-[25px] font-[500] border-b mb-5`}
+            className={`${styles.heading} text-[25px] font-[500] mb-5 flex flex-row`}
           >
-            Related Product
+            Related
+            <h2 className="bg-[#49B9C8] text-white rounded-md py1 px-1 ml-2">Product</h2>
           </h2>
           <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
              {
