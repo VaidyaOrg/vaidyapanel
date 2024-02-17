@@ -7,7 +7,7 @@ const FAQPage = () => {
   return (
     <div>
       <div>
-          <Header activeHeading={4} />
+          <Header activeHeading={5} />
           <div style={{
           display: "flex",
           justifyContent: "center",
