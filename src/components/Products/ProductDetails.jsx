@@ -119,7 +119,7 @@ const ProductDetails = ({ data }) => {
         <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
-              <div className="w-full 800px:w-[50%] pl-60 flex flex-col justify-between">
+              <div className="w-full 800px:w-[50%] pl-60 flex flex-col justify-around">
                 <img
                   src={`${data && data.images[select]?.url}`}
                   alt=""
