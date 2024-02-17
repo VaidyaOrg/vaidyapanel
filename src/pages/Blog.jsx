@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
-
+import { server } from "../server";
 const MyTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
@@ -45,8 +45,9 @@ function Blogs() {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/blog`
+          `${server}/blog/blog`
         );
+        console.log(response.data)
         setArticles(response.data || []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
