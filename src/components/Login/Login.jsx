@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('https://img.freepik.com/free-photo/medicine-capsules-global-health-with-geometric-pattern-digital-remix_53876-126742.jpg?w=996&t=st=1708013786~exp=1708014386~hmac=13d4b4f1a6dd2853b6950ba0149d43b83690e348ae74bef3671d9d2647cdcc98')] bg-cover">
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[url('https://t4.ftcdn.net/jpg/06/44/71/59/360_F_644715970_ms6pbT1zagBprZPT0mv9yoAgi2zJ4U2c.jpg')] bg-cover">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
