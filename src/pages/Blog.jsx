@@ -169,25 +169,25 @@ function Blogs() {
           onClick={() => handleTagFilter("skincare")}
         >
           <img
-            src={skincare}
+            src="https://cdn-icons-png.freepik.com/256/10786/10786600.png?ga=GA1.1.18166763.1708164657&semt=ais"
             alt="Skin Care"
-            className="rounded-full w-15 h-15 cursor-pointer"
+            className="rounded-full w-20 h-20 cursor-pointer"
           />
           <p>Skin Care</p>
         </div>
         <div className="text-center" onClick={() => handleTagFilter("fitness")}>
           <img
-            src={fitness}
+            src="https://cdn-icons-png.freepik.com/256/5783/5783140.png?ga=GA1.1.18166763.1708164657&semt=ais"
             alt="Fitness"
-            className="rounded-full w-15 h-15 cursor-pointer"
+            className="rounded-full w-20 h-20 cursor-pointer"
           />
           <p>Fitness</p>
         </div>
         <div className="text-center" onClick={() => handleTagFilter("women")}>
           <img
-            src={women}
+            src="https://cdn-icons-png.freepik.com/256/866/866853.png?ga=GA1.1.18166763.1708164657&semt=ais"
             alt="women"
-            className="rounded-full w-15 h-15 cursor-pointer"
+            className="rounded-full w-20 h-20 cursor-pointer"
           />
           <p>Women</p>
         </div>
@@ -196,17 +196,17 @@ function Blogs() {
           onClick={() => handleTagFilter("ayurveda")}
         >
           <img
-            src={ayurveda}
+            src="https://cdn-icons-png.freepik.com/256/11517/11517266.png?ga=GA1.1.18166763.1708164657&semt=ais"
             alt="Ayurveda"
-            className="rounded-full w-15 h-15 cursor-pointer"
+            className="rounded-full w-20 h-20 cursor-pointer"
           />
           <p>Ayurveda</p>
         </div>
         <div className="text-center" onClick={() => handleTagFilter("homeo")}>
           <img
-            src={homeo}
+            src="https://cdn-icons-png.freepik.com/256/7886/7886828.png?ga=GA1.1.18166763.1708164657&semt=ais"
             alt="Homeo"
-            className="rounded-full w-15 h-15 cursor-pointer"
+            className="rounded-full w-20 h-20 cursor-pointer"
           />
           <p>Homeo</p>
         </div>
