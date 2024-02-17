@@ -8,12 +8,12 @@ import { styled } from "@mui/material/styles";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import styles from "../styles/styles";
+import { server } from "../server";
 const MyTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
     background-color: #1f2e3d; /* Dark blue background when focused */
     padding: 0 8px; /* Adjust padding for better visibility */
-
     border-radius: ${(props) =>
       props.hasSearchText
         ? "50px 50px 0 0"
@@ -35,18 +35,21 @@ const MyTextField = styled(TextField)`
     }
   }
 `;
+
 function Blogs() {
   const [articles, setArticles] = useState([]);
   const [selectedTag, setSelectedTag] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/blog`
+          `${server}/blog/blog`
         );
-        setArticles(response.data);
+        console.log(response.data)
+        setArticles(response.data || []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -54,6 +57,7 @@ function Blogs() {
 
     fetchBlogs();
   }, []);
+
   const getLatestBlogs = () => {
     const currentDate = new Date();
     const twoWeeksAgo = new Date();
@@ -80,6 +84,7 @@ function Blogs() {
   const olderBlogs = groupByTag(
     articles.filter((article) => !getLatestBlogs().includes(article))
   );
+
   const handleTagFilter = (tag) => {
     setSelectedTag(tag);
   };
@@ -87,12 +92,15 @@ function Blogs() {
   const clearTagFilter = () => {
     setSelectedTag(null);
   };
+
   const filteredLatestBlogs = selectedTag
     ? { [selectedTag]: latestBlogs[selectedTag] }
     : latestBlogs;
+
   const filteredOlderBlogs = selectedTag
     ? { [selectedTag]: olderBlogs[selectedTag] }
     : olderBlogs;
+
   const getFilteredNewBlogsArray = () => {
     const latestBlogsArray = Object.entries(filteredLatestBlogs)
       .map(([tag, articles]) => articles || [])
@@ -154,12 +162,6 @@ function Blogs() {
           </span>
         </h1>
       </div>
-        <h1 className="texthead leading-relaxed font-[600] mb-2 ">
-          Sort by{" "}
-          <span className="bg-opacity-20 text-themeText bg-themebg px-1 py-1">
-            Tags
-          </span>
-        </h1>
       </div>
       <div className="flex justify-between p-20">
         <div
@@ -184,7 +186,7 @@ function Blogs() {
         <div className="text-center" onClick={() => handleTagFilter("women")}>
           <img
             src={women}
-            alt="Homeo"
+            alt="women"
             className="rounded-full w-15 h-15 cursor-pointer"
           />
           <p>Women</p>
@@ -269,7 +271,7 @@ function Blogs() {
                 <div
                   className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
                   key={article._id}
-                  onClick={() => navigate(`/healthtips/${article._id}`)}
+                  onClick={() => navigate(`/blogs/${article._id}`)}
                 >
                   <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl ">
                     <div className="flex gap-4 items-center">
@@ -278,7 +280,7 @@ function Blogs() {
                           {article.tag}
                         </div>
                         <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                          {new Date(article.date).toLocaleDateString("en-GB")}
+                          {article.date && new Date(article.date).toLocaleDateString("en-GB")}
                         </div>
                       </div>
                       <div className="text-center text-black text-[13px] font-bold leading-none">
@@ -314,7 +316,7 @@ function Blogs() {
                 <div
                   className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
                   key={article.id}
-                  onClick={() => navigate(`/healthtips/${article._id}`)}
+                  onClick={() => navigate(`/blogs/${article._id}`)}
                 >
                   <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl ">
                     <div className="flex gap-4 items-center">
@@ -323,7 +325,7 @@ function Blogs() {
                           {article.tag}
                         </div>
                         <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                          {new Date(article.date).toLocaleDateString("en-GB")}
+                          {article.date && new Date(article.date).toLocaleDateString("en-GB")}
                         </div>
                       </div>
                       <div className="text-center text-black text-[13px] font-bold leading-none">
