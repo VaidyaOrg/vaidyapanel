@@ -24,7 +24,21 @@ const BestSellingPage = () => {
       <Loader />
     ) : (
       <div>
-      <Header activeHeading={2} />
+      <div>
+          <Header activeHeading={4} />
+          <div style={{
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
+            
+          <h1 className="texthead leading-relaxed font-[600]">
+          Best  {" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            Selling
+          </span>
+        </h1>
+      </div>
       <br />
       <br />
       <div className={`${styles.section}`}>
@@ -33,6 +47,7 @@ const BestSellingPage = () => {
         </div>
       </div>
       <Footer />
+    </div>
     </div>
     )
    }
