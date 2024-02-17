@@ -269,7 +269,7 @@ function Blogs() {
                 <div
                   className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
                   key={article._id}
-                  onClick={() => navigate(`/healthtips/${article._id}`)}
+                  onClick={() => navigate(`/blogs/${article._id}`)}
                 >
                   <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl ">
                     <div className="flex gap-4 items-center">
@@ -314,7 +314,7 @@ function Blogs() {
                 <div
                   className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
                   key={article.id}
-                  onClick={() => navigate(`/healthtips/${article._id}`)}
+                  onClick={() => navigate(`/blogs/${article._id}`)}
                 >
                   <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl ">
                     <div className="flex gap-4 items-center">
