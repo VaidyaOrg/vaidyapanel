@@ -180,7 +180,7 @@ function Blogs() {
             alt="Homeo"
             className="rounded-full w-15 h-15 cursor-pointer"
           />
-          <p>Homeo</p>
+          <p>Women</p>
         </div>
         <div
           className="text-center"
@@ -193,7 +193,7 @@ function Blogs() {
           />
           <p>Ayurveda</p>
         </div>
-        <div className="text-center" onClick={() => handleTagFilter("fitness")}>
+        <div className="text-center" onClick={() => handleTagFilter("homeo")}>
           <img
             src={homeo}
             alt="Homeo"
