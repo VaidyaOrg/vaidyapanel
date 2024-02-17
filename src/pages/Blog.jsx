@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
+
 const MyTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
     background-color: #1f2e3d; /* Dark blue background when focused */
     padding: 0 8px; /* Adjust padding for better visibility */
-
     border-radius: ${(props) =>
       props.hasSearchText
         ? "50px 50px 0 0"
@@ -34,18 +34,20 @@ const MyTextField = styled(TextField)`
     }
   }
 `;
+
 function Blogs() {
   const [articles, setArticles] = useState([]);
   const [selectedTag, setSelectedTag] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_BACKEND_URL}/blog`
         );
-        setArticles(response.data);
+        setArticles(response.data || []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -53,6 +55,7 @@ function Blogs() {
 
     fetchBlogs();
   }, []);
+
   const getLatestBlogs = () => {
     const currentDate = new Date();
     const twoWeeksAgo = new Date();
@@ -79,6 +82,7 @@ function Blogs() {
   const olderBlogs = groupByTag(
     articles.filter((article) => !getLatestBlogs().includes(article))
   );
+
   const handleTagFilter = (tag) => {
     setSelectedTag(tag);
   };
@@ -86,12 +90,15 @@ function Blogs() {
   const clearTagFilter = () => {
     setSelectedTag(null);
   };
+
   const filteredLatestBlogs = selectedTag
     ? { [selectedTag]: latestBlogs[selectedTag] }
     : latestBlogs;
+
   const filteredOlderBlogs = selectedTag
     ? { [selectedTag]: olderBlogs[selectedTag] }
     : olderBlogs;
+
   const getFilteredNewBlogsArray = () => {
     const latestBlogsArray = Object.entries(filteredLatestBlogs)
       .map(([tag, articles]) => articles || [])
@@ -138,8 +145,7 @@ function Blogs() {
 
   return (
     <div className="mt-8 min-h-screen overflow-hidden ">
-
-    <Header activeHeading={6} />
+      <Header activeHeading={6} />
       <div
         style={{
           display: "flex",
@@ -177,7 +183,7 @@ function Blogs() {
         <div className="text-center" onClick={() => handleTagFilter("women")}>
           <img
             src={women}
-            alt="Homeo"
+            alt="women"
             className="rounded-full w-15 h-15 cursor-pointer"
           />
           <p>Women</p>
@@ -271,7 +277,7 @@ function Blogs() {
                           {article.tag}
                         </div>
                         <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                          {new Date(article.date).toLocaleDateString("en-GB")}
+                          {article.date && new Date(article.date).toLocaleDateString("en-GB")}
                         </div>
                       </div>
                       <div className="text-center text-black text-[13px] font-bold leading-none">
@@ -316,7 +322,7 @@ function Blogs() {
                           {article.tag}
                         </div>
                         <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                          {new Date(article.date).toLocaleDateString("en-GB")}
+                          {article.date && new Date(article.date).toLocaleDateString("en-GB")}
                         </div>
                       </div>
                       <div className="text-center text-black text-[13px] font-bold leading-none">
