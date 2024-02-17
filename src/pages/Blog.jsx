@@ -169,7 +169,7 @@ function Blogs() {
           onClick={() => handleTagFilter("skincare")}
         >
           <img
-            src="https://cdn-icons-png.freepik.com/256/10786/10786600.png?ga=GA1.1.18166763.1708164657&semt=ais"
+            src="https://cdn-icons-png.freepik.com/256/11009/11009196.png?ga=GA1.1.323232629.1708013773&semt=ais"
             alt="Skin Care"
             className="rounded-full w-20 h-20 cursor-pointer"
           />
@@ -185,7 +185,7 @@ function Blogs() {
         </div>
         <div className="text-center" onClick={() => handleTagFilter("women")}>
           <img
-            src="https://cdn-icons-png.freepik.com/256/866/866853.png?ga=GA1.1.18166763.1708164657&semt=ais"
+            src="https://cdn-icons-png.freepik.com/256/4277/4277490.png?ga=GA1.1.323232629.1708013773&semt=ais"
             alt="women"
             className="rounded-full w-20 h-20 cursor-pointer"
           />
