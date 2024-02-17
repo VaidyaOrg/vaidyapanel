@@ -6,7 +6,22 @@ import styles from "../styles/styles";
 const FAQPage = () => {
   return (
     <div>
-      <Header activeHeading={5} />
+      <div>
+          <Header activeHeading={4} />
+          <div style={{
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
+            
+          <h1 className="texthead leading-relaxed font-[600]">
+          Frequently Asked  {" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+          Questions
+          </span>
+        </h1>
+      </div>
+      </div>
       <Faq />
       <Footer />
     </div>
@@ -26,7 +41,7 @@ const Faq = () => {
 
   return (
     <div className={`${styles.section} my-8`}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">FAQ</h2>
+    {/* //   <h2 className="text-3xl font-bold text-gray-900 mb-8">FAQ</h2> */}
       <div className="mx-auto space-y-4">
         {/* single Faq */}
 

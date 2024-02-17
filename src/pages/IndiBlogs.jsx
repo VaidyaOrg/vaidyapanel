@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { blog } from "../Assests";
+import {server} from "../server";
 const IndiBlogs = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
@@ -9,9 +10,10 @@ const IndiBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/apis/blogs/${id}`
+          `${server}/blog/blog/${id}`
         );
         setArticle(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }

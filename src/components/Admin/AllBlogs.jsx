@@ -25,8 +25,14 @@ const AllBlogs = () => {
         flex: 1.4,
       },
       {
-        field: "pricetag",
-        headerName: "tag",
+        field: "tag",
+        headerName: "Tag",
+        minWidth: 100,
+        flex: 0.6,
+      },
+      {
+        field: "tag",
+        headerName: "Tag",
         minWidth: 100,
         flex: 0.6,
       },
