@@ -109,7 +109,26 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <h5 className="text-[16px] text-[red] mt-5">(50) Sold out</h5>
               </div>
 
-              <div className="w-full 800px:w-[50%] pt-5 pl-[5px] pr-[5px]">
+              <div className="pt-6">
+                {click ? (
+                  <AiFillHeart
+                    size={30}
+                    className="cursor-pointer"
+                    onClick={() => removeFromWishlistHandler(data)}
+                    color={click ? "red" : "#333"}
+                    title="Remove from wishlist"
+                  />
+                ) : (
+                  <AiOutlineHeart
+                    size={30}
+                    className="cursor-pointer"
+                    onClick={() => addToWishlistHandler(data)}
+                    title="Add to wishlist"
+                  />
+                )}
+              </div>
+
+              <div className="w-full 800px:w-[50%] pt-5 pl-8 pr-[5px]">
                 <h1 className={`${styles.productTitle} text-[20px]`}>
                   {data.name}
                 </h1>
@@ -126,7 +145,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <div className="flex items-center mt-12 justify-between pr-3">
                   <div>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-[#49B9C8] opacity-50 from-teal-400 to-teal-500 text-[#000000] font-bold rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={decrementCount}
                     >
                       -
@@ -135,29 +154,11 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       {count}
                     </span>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-[#49B9C8] opacity-50 from-teal-400 to-teal-500 text-[#000000] font-bold rounded px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={incrementCount}
                     >
                       +
                     </button>
-                  </div>
-                  <div>
-                    {click ? (
-                      <AiFillHeart
-                        size={30}
-                        className="cursor-pointer"
-                        onClick={() => removeFromWishlistHandler(data)}
-                        color={click ? "red" : "#333"}
-                        title="Remove from wishlist"
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        size={30}
-                        className="cursor-pointer"
-                        onClick={() => addToWishlistHandler(data)}
-                        title="Add to wishlist"
-                      />
-                    )}
                   </div>
                 </div>
                 <div

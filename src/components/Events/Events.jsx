@@ -12,7 +12,7 @@ const Events = () => {
       !isLoading && (
         <div className={`${styles.section}`}>
       <div className={`${styles.heading}`}>
-          <h1 className="texthead leading-relaxed font-[600] mb-2 ">
+          <h1 className="texthead text-center leading-relaxed font-[600] my-2 ">
           Upcoming{" "}
           <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
             Events
