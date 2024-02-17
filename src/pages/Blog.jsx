@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
+import styles from "../styles/styles";
 import { server } from "../server";
 const MyTextField = styled(TextField)`
   & label.Mui-focused {
@@ -146,20 +147,21 @@ function Blogs() {
 
   return (
     <div className="mt-8 min-h-screen overflow-hidden ">
-      <Header activeHeading={6} />
-      <div
-        style={{
+    <div>
+          <Header activeHeading={4} />
+          <div style={{
           display: "flex",
           justifyContent: "center",
           textAlign: "center",
-        }}
-      >
-        <h1 className="texthead leading-relaxed font-[600] mb-2 ">
-          Sort by{" "}
-          <span className="bg-opacity-20 text-themeText bg-themebg px-1 py-1">
+        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
+            
+          <h1 className="texthead leading-relaxed font-[600]">
+          Sort by {" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
             Tags
           </span>
         </h1>
+      </div>
       </div>
       <div className="flex justify-between p-20">
         <div

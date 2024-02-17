@@ -14,7 +14,7 @@ const Events = () => {
       <div className={`${styles.heading}`}>
           <h1 className="texthead leading-relaxed font-[600] mb-2 ">
           Upcoming{" "}
-          <span className="bg-opacity-50 rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
             Events
           </span>
         </h1>

@@ -25,6 +25,7 @@ const EventCard = ({ active, data }) => {
     }
   }
   return (
+    <div className="m-20">
     <div
       className={`w-full p-12 block bg-white justify-content-between rounded-lg ${
         active ? "unset" : "mb-12"
@@ -58,6 +59,7 @@ const EventCard = ({ active, data }) => {
           <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Add to cart</div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
