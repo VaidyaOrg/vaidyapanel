@@ -17,7 +17,7 @@ const SidebarLeft = ({ setActive, active }) => {
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(1)}
       >
-        <RxPerson size={20} color={active === 1 ? "#49B9C8" : ""} />
+        <IoHomeOutline size={20} color={active === 1 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
             active === 1 ? "text-[#49B9C8]" : ""
