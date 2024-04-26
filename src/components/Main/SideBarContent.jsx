@@ -86,7 +86,7 @@ const SideBarContent = ({ active }) => {
       {/* profile */}
       {active === 1 && (
         <>
-          <div className="flex justify-center w-[60vw] mx-50 ml-10 rounded-lg bg-white">
+          <div className="flex justify-center w-[55vw] ml-14 rounded-lg bg-white">
             <div className="relative pl-10 pr-5 pb-6 pt-8">
               <p className="text-2xl font-semibold text-center">Welcome to <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Health Centre</span></p>
               <br />

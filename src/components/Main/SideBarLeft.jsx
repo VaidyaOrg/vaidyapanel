@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineMessage } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { IoHomeOutline } from "react-icons/io5";
 import {
   MdOutlineTrackChanges,
 } from "react-icons/md";
