@@ -1,165 +1,78 @@
 import React from "react";
-import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
-import { RiLockPasswordLine } from "react-icons/ri";
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
-import {
-  MdOutlineAdminPanelSettings,
-  MdOutlinePassword,
-  MdOutlineTrackChanges,
-} from "react-icons/md";
-import { TbAddressBook } from "react-icons/tb";
 import { RxPerson } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { server } from "../../server";
-import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 
 const SidebarRight = ({ setActive, active }) => {
-  const navigate = useNavigate();
- const {user} = useSelector((state) => state.user);
-  const logoutHandler = () => {
-    axios
-      .get(`${server}/user/logout`, { withCredentials: true })
-      .then((res) => {
-        toast.success(res.data.message);
-        window.location.reload(true);
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-      });
-  };
+  const today = new Date();
+  const options = { weekday: "long", month: "long", day: "numeric" };
+  const formattedDate = today.toLocaleDateString("en-US", options);
+
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(1)}
+        onClick={() => setActive(11)}
       >
-        <RxPerson size={20} color={active === 1 ? "#49B9C8" : ""} />
+        <RxPerson size={20} color={active === 11 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 1 ? "text-[#49B9C8]" : ""
+            active === 11 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Profile
+          Emergency Contacts
         </span>
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(2)}
+        onClick={() => setActive(12)}
       >
-        <HiOutlineShoppingBag size={20} color={active === 2 ? "#49B9C8" : ""} />
+        <HiOutlineShoppingBag
+          size={20}
+          color={active === 12 ? "#49B9C8" : ""}
+        />
         <span
           className={`pl-3 ${
-            active === 2 ? "text-[#49B9C8]" : ""
+            active === 12 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Orders
+          Notifications
         </span>
+      </div>
+      {/* Calendar */}
+      <div className="mb-8">
+        <Calendar className="w-1" defaultValue={today} value={today} />
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(3)}
       >
-        <HiOutlineReceiptRefund size={20} color={active === 3 ? "#49B9C8" : ""} />
+        <HiOutlineReceiptRefund
+          size={20}
+          color={active === 3 ? "#49B9C8" : ""}
+        />
         <span
           className={`pl-3 ${
-            active === 3 ? "text-[#49B9C8]" : ""
+            active === 13 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Refunds
+          External Links
         </span>
       </div>
 
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(4) || navigate("/inbox")}
-      >
-        <AiOutlineMessage size={20} color={active === 4 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 4 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          Inbox
-        </span>
-      </div>
-
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(5)}
-      >
-        <MdOutlineTrackChanges size={20} color={active === 5 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 5 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          Track Order
-        </span>
-      </div>
-
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(6)}
-      >
-        <RiLockPasswordLine size={20} color={active === 6 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 6 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          Change Password
-        </span>
-      </div>
-
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(7)}
-      >
-        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 7 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          Address
-        </span>
-      </div>
-
-      {user && user?.role === "Admin" && (
-        <Link to="/admin/dashboard">
-          <div
-            className="flex items-center cursor-pointer w-full mb-8"
-            onClick={() => setActive(8)}
-          >
-            <MdOutlineAdminPanelSettings
-              size={20}
-              color={active === 7 ? "#49B9C8" : ""}
-            />
-            <span
-              className={`pl-3 ${
-                active === 8 ? "text-[#49B9C8]" : ""
-              } 800px:block hidden`}
-            >
-              Admin Dashboard
-            </span>
-          </div>
-        </Link>
-      )}
-      <div
-        className="single_item flex items-center cursor-pointer w-full mb-8"
-        onClick={logoutHandler}
-      >
-        <AiOutlineLogin size={20} color={active === 8 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 8 ? "text-texttheme" : ""
-          } 800px:block hidden`}
-        >
-          Log out
-        </span>
+      {/* Latest Circulars */}
+      <div className="mb-8">
+        <h2 className="text-xl font-bold mb-4">Latest Circulars</h2>
+        <div className="marquee">
+          <marquee direction="up" scrollamount="3" height="100">
+            <p>Notification 1</p>
+            <p>Notification 2</p>
+            <p>Notification 3</p>
+            {/* Add more notifications as needed */}
+          </marquee>
+        </div>
       </div>
     </div>
   );
