@@ -23,7 +23,8 @@ import {
   UserInbox,
   Blog,
   IndiBlogs,
-  Home
+  Home,
+  AboutUs
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -105,6 +106,7 @@ const App = () => {
           path="/activation/:activation_token"
           element={<ActivationPage />}
         />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route
           path="/seller/activation/:activation_token"
           element={<SellerActivationPage />}

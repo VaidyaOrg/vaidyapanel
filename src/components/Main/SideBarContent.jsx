@@ -23,7 +23,10 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { getAllOrdersOfUser } from "../../redux/actions/order";
-
+import Facilities from "../About/Facilities";
+import Appointment from "../Appointement/Appointment";
+import LabTest from "../LabTest/LabTest";
+import EventSidebar from "../Events/EventSidebar";
 const SideBarContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
@@ -165,28 +168,26 @@ const SideBarContent = ({ active }) => {
       {/* order */}
       {active === 2 && (
         <div>
-          <AllOrders />
+          <Facilities />
         </div>
       )}
 
       {/* Refund */}
       {active === 3 && (
         <div>
-          <AllRefundOrders />
+          <Appointment />
         </div>
       )}
 
       {/* Track order */}
-      {active === 5 && (
+      {active === 4 && (
         <div>
-          <TrackOrder />
+          <LabTest />
         </div>
       )}
-
-      {/* Change Password */}
-      {active === 6 && (
+      {active === 5 && (
         <div>
-          <ChangePassword />
+          <EventSidebar />
         </div>
       )}
 

@@ -20,6 +20,7 @@ import UserInbox from "../pages/UserInbox.jsx";
 import Blog from "../pages/Blog";
 import IndiBlogs from "../pages/IndiBlogs.jsx"
 import Home from "../pages/Main/Home.jsx";
+import AboutUs from "../pages/Main/AboutUs.jsx"
 export { 
     LoginPage,
     SignupPage,
@@ -42,5 +43,6 @@ export {
     UserInbox,
     Blog,
     IndiBlogs,
-    Home
+    Home,
+    AboutUs
 };
