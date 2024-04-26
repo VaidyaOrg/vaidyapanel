@@ -9,6 +9,7 @@ import {
 } from "react-icons/md";
 import { TbAddressBook } from "react-icons/tb";
 import { RxPerson } from "react-icons/rx";
+import { IoHomeOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
@@ -36,7 +37,7 @@ const SidebarLeft = ({ setActive, active }) => {
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(1)}
       >
-        <RxPerson size={20} color={active === 1 ? "#49B9C8" : ""} />
+        <IoHomeOutline size={20} color={active === 1 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
             active === 1 ? "text-[#49B9C8]" : ""
