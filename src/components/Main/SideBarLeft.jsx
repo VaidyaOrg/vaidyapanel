@@ -42,7 +42,7 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 1 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Profile
+          Home
         </span>
       </div>
       <div
@@ -55,7 +55,7 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 2 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Orders
+          Facilities
         </span>
       </div>
       <div
@@ -82,7 +82,7 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 4 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Inbox
+          Book Appointment
         </span>
       </div>
 
@@ -96,7 +96,7 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 5 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Track Order
+          Lab Tests
         </span>
       </div>
 
@@ -110,7 +110,7 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 6 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Change Password
+          Events
         </span>
       </div>
 
@@ -124,10 +124,61 @@ const SidebarLeft = ({ setActive, active }) => {
             active === 7 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Address
+          Reimbursment
         </span>
       </div>
-
+      <div
+        className="flex items-center cursor-pointer w-full mb-8"
+        onClick={() => setActive(7)}
+      >
+        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <span
+          className={`pl-3 ${
+            active === 7 ? "text-[#49B9C8]" : ""
+          } 800px:block hidden`}
+        >
+          Psychological counselor
+        </span>
+      </div>
+      <div
+        className="flex items-center cursor-pointer w-full mb-8"
+        onClick={() => setActive(7)}
+      >
+        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <span
+          className={`pl-3 ${
+            active === 7 ? "text-[#49B9C8]" : ""
+          } 800px:block hidden`}
+        >
+          Blogs
+        </span>
+      </div>
+      <div
+        className="flex items-center cursor-pointer w-full mb-8"
+        onClick={() => setActive(7)}
+      >
+        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <span
+          className={`pl-3 ${
+            active === 7 ? "text-[#49B9C8]" : ""
+          } 800px:block hidden`}
+        >
+          Empanelled Hospitals
+        </span>
+      </div>
+      <div
+        className="flex items-center cursor-pointer w-full mb-8"
+        onClick={() => setActive(7)}
+      >
+        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <span
+          className={`pl-3 ${
+            active === 7 ? "text-[#49B9C8]" : ""
+          } 800px:block hidden`}
+        >
+          Health Insurance
+        </span>
+      </div>
       {user && user?.role === "Admin" && (
         <Link to="/admin/dashboard">
           <div
