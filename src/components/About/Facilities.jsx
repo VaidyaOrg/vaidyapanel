@@ -1,90 +1,37 @@
 import React from "react";
+import { Typography } from '@mui/material';
 // import ImageCarousel from './ImageCarousel';
 
 const Facilities = () => {
   return (
-    <div>
-      {/* Image Carousel */}
-      {/* <ImageCarousel /> */}
+    <>
+      <div className="flex justify-center w-[55vw] ml-14 rounded-lg bg-white">
+        <div className="relative pl-10 pr-5 pb-6 pt-8">
+          <p className="text-2xl font-semibold text-center">All <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Facilities</span></p>
+          <br />
+          <br />
+          <p className="font-semibold text-xl">Ambulance</p>
+          <br />
+          <Typography> To bring patients from campus quarter/hostel to IIT Bhilai Health Centre in an emergency like heart attack, bleeding, paralysis, breathlessness, fracture, pregnancy, shock and such other cases, at the discretion of the AMA. Emergency contact of ambulance: <span className="font-semibold">+91 xxxxx xxxxx</span>
+          </Typography>
+          <br />
 
-      <p>
-        Culpa qui occaecat reprehenderit ullamco officia elit officia esse esse
-        dolor. Qui nostrud in eu quis. Non Lorem ut fugiat voluptate tempor do
-        tempor velit. Officia sunt voluptate adipisicing fugiat sint est cillum
-        commodo id pariatur proident enim exercitation quis. Dolor minim eu
-        laboris labore duis laboris deserunt nisi culpa sint. Fugiat anim sint
-        enim consequat occaecat. Veniam ut voluptate dolor eu cupidatat
-        consequat aliqua. Incididunt eiusmod reprehenderit velit duis Lorem
-        labore ullamco labore. Et magna cupidatat cillum reprehenderit velit
-        officia. Ea anim laborum excepteur sint consectetur eiusmod ullamco
-        excepteur deserunt. Nisi esse enim eiusmod mollit ullamco. Eiusmod
-        eiusmod consectetur veniam sunt eiusmod. Dolore ut consequat deserunt
-        elit aute. Nisi culpa incididunt et proident reprehenderit qui quis
-        cillum esse. Ex deserunt nisi id aliqua amet proident aliquip aliquip.
-        Ex irure occaecat do ut laboris ea nisi exercitation enim nisi.
-        Voluptate anim anim sint irure irure id officia. Cillum cupidatat
-        cupidatat ipsum consequat ut aliquip enim adipisicing laborum cillum
-        deserunt fugiat exercitation sint. Dolor sit esse tempor fugiat
-        incididunt aute tempor aliquip magna.
-      </p>
-      {/* Heading */}
-      <h2>About Us</h2>
+          <p className="font-semibold text-xl">Reimbursement</p>
+          <br />
+          <Typography>This program allows individuals to submit claims for eligible medical expenses, providing financial assistance for consultations, diagnostic tests, medications, and other necessary healthcare services. Our aim is to alleviate the financial burden associated with healthcare, ensuring that our students, faculty, and staff can prioritize their well-being without worrying about the costs. To know more about reimbursement <a href="#" className="underline">click here</a>.
+          </Typography>
+          <br />
 
-      {/* Paragraph */}
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel
-        lacinia libero, vel efficitur mauris. Nullam eleifend elit in lacinia
-        dignissim. Non labore adipisicing sint et. Eiusmod aute ipsum commodo
-        voluptate sunt sunt. Officia aliqua enim esse reprehenderit laboris
-        excepteur deserunt ex exercitation et. Est excepteur magna ea nostrud
-        aliqua aliqua sunt cillum eiusmod laborum elit laboris amet est. Laboris
-        dolore pariatur ut ut. Laborum sunt deserunt ad culpa cupidatat aliqua
-        enim ad sint et. Ex eiusmod fugiat pariatur non voluptate et ad sint
-        dolore et nostrud. Est deserunt voluptate aute non tempor est anim
-        adipisicing. Incididunt laboris elit minim aliqua ea sunt voluptate
-        voluptate mollit nisi. Ut est duis consequat nulla non dolor proident
-        reprehenderit labore culpa sunt est. Consequat exercitation ut commodo
-        veniam in ipsum laborum occaecat quis dolor incididunt. Officia pariatur
-        qui mollit esse in occaecat nulla sunt eiusmod ipsum ad cupidatat.
-        Laboris nisi ullamco reprehenderit aliqua consectetur nostrud do et ex
-        velit. Ea ut est pariatur labore commodo magna ea ipsum aliquip eiusmod.
-        Lorem laborum duis tempor culpa amet commodo dolor amet tempor. Magna
-        culpa occaecat ullamco reprehenderit irure nulla culpa consequat. Ad non
-        dolor culpa enim laborum nisi aute ad velit laboris reprehenderit
-        laborum. Nostrud sint ut do quis sit quis ullamco mollit. Excepteur
-        veniam Lorem tempor aute exercitation id. Dolor nostrud do sint qui
-        proident magna. Commodo commodo voluptate dolor duis ex magna pariatur
-        officia amet eiusmod elit irure aute ex. Pariatur cupidatat eiusmod
-        voluptate in laboris. Officia voluptate elit pariatur dolor sint commodo
-        fugiat ad. Voluptate eu duis cillum laborum esse.
-      </p>
-
-      {/* Flex box with logos */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img
-          src="/logo1.png"
-          alt="Logo 1"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
-        />
-        <img
-          src="/logo2.png"
-          alt="Logo 2"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
-        />
-        <img
-          src="/logo3.png"
-          alt="Logo 3"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
-        />
+          <p className="font-semibold text-xl">Health Insurance</p>
+          <br />
+          <Typography> The Health Center at IIT Bhilai is proud to offer a comprehensive health insurance program, providing essential coverage for students, faculty, and staff. This initiative ensures access to a wide range of medical services, from consultations to hospitalization, easing financial burdens and promoting overall well-being within our campus community. To know more about health Insurance <a href="#" className="underline">click here</a>.
+          </Typography>
+        
+          <br />
+          <br />
+        </div>
       </div>
-
-      {/* Another Paragraph */}
-      <p>
-        Fusce non turpis nec mi sagittis commodo. Maecenas tincidunt tincidunt
-        quam vel scelerisque. Cras eu ex sit amet lorem rutrum malesuada in in
-        mi. Nam gravida sit amet enim vitae vestibulum.
-      </p>
-    </div>
+    </>
   );
 };
 
