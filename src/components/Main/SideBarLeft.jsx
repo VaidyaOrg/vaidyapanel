@@ -18,7 +18,7 @@ import { useSelector } from "react-redux";
 
 const SidebarLeft = ({ setActive, active }) => {
   const navigate = useNavigate();
- const {user} = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const logoutHandler = () => {
     axios
       .get(`${server}/user/logout`, { withCredentials: true })
@@ -63,24 +63,10 @@ const SidebarLeft = ({ setActive, active }) => {
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(3)}
       >
-        <HiOutlineReceiptRefund size={20} color={active === 3 ? "#49B9C8" : ""} />
+        <AiOutlineMessage size={20} color={active === 3 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
             active === 3 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          Refunds
-        </span>
-      </div>
-
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(4) || navigate("/inbox")}
-      >
-        <AiOutlineMessage size={20} color={active === 4 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 4 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Book Appointment
@@ -89,12 +75,15 @@ const SidebarLeft = ({ setActive, active }) => {
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(5)}
+        onClick={() => setActive(4)}
       >
-        <MdOutlineTrackChanges size={20} color={active === 5 ? "#49B9C8" : ""} />
+        <MdOutlineTrackChanges
+          size={20}
+          color={active === 4 ? "#49B9C8" : ""}
+        />
         <span
           className={`pl-3 ${
-            active === 5 ? "text-[#49B9C8]" : ""
+            active === 4 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Lab Tests
@@ -103,12 +92,12 @@ const SidebarLeft = ({ setActive, active }) => {
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(6)}
+        onClick={() => setActive(5)}
       >
-        <RiLockPasswordLine size={20} color={active === 6 ? "#49B9C8" : ""} />
+        <RiLockPasswordLine size={20} color={active === 5 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 6 ? "text-[#49B9C8]" : ""
+            active === 5 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Events
