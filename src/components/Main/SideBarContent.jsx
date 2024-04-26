@@ -27,6 +27,7 @@ import Facilities from "../About/Facilities";
 import Appointment from "../Appointement/Appointment";
 import LabTest from "../LabTest/LabTest";
 import EventSidebar from "../Events/EventSidebar";
+import Reimbursment from "../Reimbursment/Reimbursment";
 const SideBarContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
@@ -164,22 +165,16 @@ const SideBarContent = ({ active }) => {
           </div>
         </>
       )}
-
-      {/* order */}
       {active === 2 && (
         <div>
           <Facilities />
         </div>
       )}
-
-      {/* Refund */}
       {active === 3 && (
         <div>
           <Appointment />
         </div>
       )}
-
-      {/* Track order */}
       {active === 4 && (
         <div>
           <LabTest />
@@ -190,11 +185,9 @@ const SideBarContent = ({ active }) => {
           <EventSidebar />
         </div>
       )}
-
-      {/*  user Address */}
-      {active === 7 && (
+      {active === 6 && (
         <div>
-          <Address />
+          <Reimbursment />
         </div>
       )}
     </div>

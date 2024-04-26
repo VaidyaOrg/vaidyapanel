@@ -1,35 +1,16 @@
 import React from "react";
-import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineMessage } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import {
-  MdOutlineAdminPanelSettings,
-  MdOutlinePassword,
   MdOutlineTrackChanges,
 } from "react-icons/md";
 import { TbAddressBook } from "react-icons/tb";
 import { RxPerson } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { server } from "../../server";
-import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SidebarLeft = ({ setActive, active }) => {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.user);
-  const logoutHandler = () => {
-    axios
-      .get(`${server}/user/logout`, { withCredentials: true })
-      .then((res) => {
-        toast.success(res.data.message);
-        window.location.reload(true);
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-      });
-  };
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
       <div
@@ -105,12 +86,12 @@ const SidebarLeft = ({ setActive, active }) => {
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(7)}
+        onClick={() => setActive(6)}
       >
-        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <TbAddressBook size={20} color={active === 6 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 7 ? "text-[#49B9C8]" : ""
+            active === 6 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Reimbursment
@@ -131,12 +112,12 @@ const SidebarLeft = ({ setActive, active }) => {
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(7)}
+        onClick={() => setActive(8) || navigate("/blogs")}
       >
-        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <TbAddressBook size={20} color={active === 8 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 7 ? "text-[#49B9C8]" : ""
+            active === 8 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Blogs
@@ -144,12 +125,12 @@ const SidebarLeft = ({ setActive, active }) => {
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(7)}
+        onClick={() => setActive(9)}
       >
-        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <TbAddressBook size={20} color={active === 9 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 7 ? "text-[#49B9C8]" : ""
+            active === 9 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Empanelled Hospitals
@@ -157,48 +138,15 @@ const SidebarLeft = ({ setActive, active }) => {
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(7)}
+        onClick={() => setActive(10)}
       >
-        <TbAddressBook size={20} color={active === 7 ? "#49B9C8" : ""} />
+        <TbAddressBook size={20} color={active === 10 ? "#49B9C8" : ""} />
         <span
           className={`pl-3 ${
-            active === 7 ? "text-[#49B9C8]" : ""
+            active === 10 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
           Health Insurance
-        </span>
-      </div>
-      {user && user?.role === "Admin" && (
-        <Link to="/admin/dashboard">
-          <div
-            className="flex items-center cursor-pointer w-full mb-8"
-            onClick={() => setActive(8)}
-          >
-            <MdOutlineAdminPanelSettings
-              size={20}
-              color={active === 7 ? "#49B9C8" : ""}
-            />
-            <span
-              className={`pl-3 ${
-                active === 8 ? "text-[#49B9C8]" : ""
-              } 800px:block hidden`}
-            >
-              Admin Dashboard
-            </span>
-          </div>
-        </Link>
-      )}
-      <div
-        className="single_item flex items-center cursor-pointer w-full mb-8"
-        onClick={logoutHandler}
-      >
-        <AiOutlineLogin size={20} color={active === 8 ? "#49B9C8" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 8 ? "text-texttheme" : ""
-          } 800px:block hidden`}
-        >
-          Log out
         </span>
       </div>
     </div>

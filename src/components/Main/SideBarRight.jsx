@@ -11,7 +11,7 @@ const SidebarRight = ({ setActive, active }) => {
   const formattedDate = today.toLocaleDateString("en-US", options);
 
   return (
-    <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
+    <div className="w-[90%] bg-white shadow-sm rounded-[10px] p-4 pt-8">
       <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(11)}
@@ -42,7 +42,7 @@ const SidebarRight = ({ setActive, active }) => {
         </span>
       </div>
       {/* Calendar */}
-      <div className="mb-8">
+      <div className="mb-8 w-[80%]">
         <Calendar className="w-1" defaultValue={today} value={today} />
       </div>
       <div
