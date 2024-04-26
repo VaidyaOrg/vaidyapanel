@@ -22,7 +22,8 @@ import {
   TrackOrderPage,
   UserInbox,
   Blog,
-  IndiBlogs
+  IndiBlogs,
+  Home
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -96,7 +97,8 @@ const App = () => {
         </Elements>
       )}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shophome" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<SignupPage />} />
         <Route

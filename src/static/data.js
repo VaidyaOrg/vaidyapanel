@@ -2,7 +2,7 @@
 export const navItems = [
     {
       title: "Medicine",
-      url: "/",
+      url: "/shophome",
     },
     {
       title: "Best selling",
@@ -26,6 +26,12 @@ export const navItems = [
     },
   ];
   
+export const MainNavbar = [
+  {
+    title: "Home",
+    url: "/",
+  }
+]
   // branding data
   export const brandingData = [
     {

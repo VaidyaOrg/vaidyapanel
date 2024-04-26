@@ -19,6 +19,7 @@ import TrackOrderPage from "../pages/TrackOrderPage";
 import UserInbox from "../pages/UserInbox.jsx";
 import Blog from "../pages/Blog";
 import IndiBlogs from "../pages/IndiBlogs.jsx"
+import Home from "../pages/Main/Home.jsx";
 export { 
     LoginPage,
     SignupPage,
@@ -40,5 +41,6 @@ export {
     TrackOrderPage,
     UserInbox,
     Blog,
-    IndiBlogs
+    IndiBlogs,
+    Home
 };
