@@ -22,6 +22,9 @@ import IndiBlogs from "../pages/IndiBlogs.jsx"
 import Home from "../pages/Main/Home.jsx";
 import AboutUs from "../pages/Main/AboutUs.jsx"
 import Appointment from "../pages/Appointment/Appointment.jsx"
+import EmpOPD from "../pages/Reimbsurement/EmpOPD.jsx";
+import EmpIndoor from "../pages/Reimbsurement/EmpIndoor.jsx";
+import Student from "../pages/Reimbsurement/Student.jsx";
 export { 
     LoginPage,
     SignupPage,
@@ -46,5 +49,8 @@ export {
     IndiBlogs,
     Home,
     AboutUs,
-    Appointment
+    Appointment,
+    EmpOPD,
+    EmpIndoor,
+    Student
 };

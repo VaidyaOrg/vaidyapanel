@@ -25,7 +25,10 @@ import {
   IndiBlogs,
   Home,
   AboutUs,
-  Appointment
+  Appointment,
+  EmpOPD,
+  EmpIndoor,
+  Student
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -117,6 +120,30 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Appointment />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/empopd"
+          element={
+            <ProtectedRoute>
+              <EmpOPD />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/empind"
+          element={
+            <ProtectedRoute>
+              <EmpIndoor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/student"
+          element={
+            <ProtectedRoute>
+              <Student />
             </ProtectedRoute>
           }
         />
