@@ -25,6 +25,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { getAllOrdersOfUser } from "../../redux/actions/order";
 import Facilities from "../About/Facilities";
+import Hospitals from "../Hospitals/Hospitals";
 import Appointment from "../Appointement/Appointment";
 import LabTest from "../LabTest/LabTest";
 import EventSidebar from "../Events/EventSidebar";
@@ -139,6 +140,11 @@ const SideBarContent = ({ active }) => {
       {active === 7 && (
         <div>
           <PsyCounselor />
+        </div>
+      )}
+      {active === 9 && (
+        <div>
+          <Hospitals />
         </div>
       )}
     </div>
