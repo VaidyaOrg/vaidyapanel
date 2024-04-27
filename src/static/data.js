@@ -35,6 +35,10 @@ export const MainNavbar = [
     title: "About Us",
     url: "/about-us",
   },
+  {
+    title: "Book Appointment",
+    url: "/appointment",
+  },
 ];
 // branding data
 export const brandingData = [

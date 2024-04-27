@@ -24,7 +24,8 @@ import {
   Blog,
   IndiBlogs,
   Home,
-  AboutUs
+  AboutUs,
+  Appointment
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -49,7 +50,7 @@ import {
   AdminDashboardProducts,
   AdminDashboardEvents,
   AdminDashboardWithdraw,
-  AdminDashboardBlogs
+  AdminDashboardBlogs,
 } from "./routes/AdminRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -111,11 +112,20 @@ const App = () => {
           path="/seller/activation/:activation_token"
           element={<SellerActivationPage />}
         />
+        <Route
+          path="/appointment"
+          element={
+            <ProtectedRoute>
+              <Appointment />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/best-selling" element={<BestSellingPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        
         <Route
           path="/checkout"
           element={
@@ -133,18 +143,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/blogs"
-          element={
-              <Blog />
-          }
-        />
-        <Route
-          path="/blogs/:id"
-          element={
-              <IndiBlogs />
-          }
-        />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blogs/:id" element={<IndiBlogs />} />
         <Route
           path="/inbox"
           element={
@@ -311,7 +311,7 @@ const App = () => {
             </ProtectedAdminRoute>
           }
         />
-         <Route
+        <Route
           path="/admin-products"
           element={
             <ProtectedAdminRoute>
@@ -319,7 +319,7 @@ const App = () => {
             </ProtectedAdminRoute>
           }
         />
-         <Route
+        <Route
           path="/admin-events"
           element={
             <ProtectedAdminRoute>
@@ -327,7 +327,7 @@ const App = () => {
             </ProtectedAdminRoute>
           }
         />
-         <Route
+        <Route
           path="/admin-withdraw-request"
           element={
             <ProtectedAdminRoute>

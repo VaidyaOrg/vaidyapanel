@@ -21,6 +21,7 @@ import Blog from "../pages/Blog";
 import IndiBlogs from "../pages/IndiBlogs.jsx"
 import Home from "../pages/Main/Home.jsx";
 import AboutUs from "../pages/Main/AboutUs.jsx"
+import Appointment from "../pages/Appointment/Appointment.jsx"
 export { 
     LoginPage,
     SignupPage,
@@ -44,5 +45,6 @@ export {
     Blog,
     IndiBlogs,
     Home,
-    AboutUs
+    AboutUs,
+    Appointment
 };

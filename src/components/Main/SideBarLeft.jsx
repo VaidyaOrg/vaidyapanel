@@ -41,7 +41,7 @@ const SidebarLeft = ({ setActive, active }) => {
       </div>
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(3)}
+        onClick={() => setActive(3) || navigate("/appointment")}
       >
         <AiOutlineMessage size={20} color={active === 3 ? "#49B9C8" : ""} />
         <span

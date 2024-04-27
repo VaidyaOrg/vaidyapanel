@@ -28,11 +28,16 @@ const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
   const [email, setEmail] = useState(user && user.email);
+  const [ldapId, setLdapId] = useState(user && user.ldapId);
+  const [collegeId, setCollegeId] = useState(user && user.collegeId);
+  const [expiryDate, setExpiryDate] = useState(user && user.expiryDate);
+  const [department, setDepartment] = useState(user && user.department);
+  const [dateOfBirth, setDateOfBirth] = useState(user && user.dateOfBirth);
   const [phoneNumber, setPhoneNumber] = useState(user && user.phoneNumber);
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
   const dispatch = useDispatch();
-
+  const isStudent = user && user.role === "student";
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -46,7 +51,19 @@ const ProfileContent = ({ active }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUserInformation(name, email, phoneNumber, password));
+    dispatch(
+      updateUserInformation({
+        name,
+        email,
+        phoneNumber,
+        password,
+        ldapId,
+        collegeId,
+        expiryDate,
+        department,
+        dateOfBirth,
+      })
+    );
   };
 
   const handleImage = async (e) => {
@@ -105,25 +122,89 @@ const ProfileContent = ({ active }) => {
           <br />
           <div className="w-full px-5">
             <form onSubmit={handleSubmit} aria-required={true}>
-              <div className="w-full 800px:flex block pb-3">
-                <div className=" w-[100%] 800px:w-[50%]">
+              <div className="w-full flex flex-wrap pb-3">
+                <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                   <label className="block pb-2">Full Name</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`${styles.input} w-full mb-4`}
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-                <div className=" w-[100%] 800px:w-[50%]">
+                <div className="w-full md:w-1/2 px-2">
                   <label className="block pb-2">Email Address</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
+                    className={`${styles.input} w-full mb-4`}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 px-2">
+                  <label className="block pb-2">LDAP ID</label>
+                  <input
+                    type="text"
+                    className={`${styles.input} w-full mb-4`}
+                    required={isStudent}
+                    value={ldapId}
+                    onChange={(e) => setLdapId(e.target.value)}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 px-2">
+                  <label className="block pb-2">College ID</label>
+                  <input
+                    type="text"
+                    className={`${styles.input} w-full mb-4`}
+                    required={isStudent}
+                    value={collegeId}
+                    onChange={(e) => setCollegeId(e.target.value)}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 px-2">
+                  <label className="block pb-2">Expiry Date</label>
+                  <input
+                    type="date"
+                    className={`${styles.input} w-full mb-4`}
+                    required={isStudent}
+                    value={expiryDate ? expiryDate.substring(0, 10) : ""}
+                    onChange={(e) => setExpiryDate(e.target.value)}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 px-2">
+                  <label className="block pb-2">Department</label>
+                  <select
+                    className={`${styles.input} w-full mb-4`}
+                    required={isStudent}
+                    value={department}
+                    onChange={(e) => setDepartment(e.target.value)}
+                  >
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Data Science and Artificial Intelligence">
+                      Data Science and Artificial Intelligence
+                    </option>
+                    <option value="Electrical Engineering">
+                      Electrical Engineering
+                    </option>
+                    <option value="Mechanical Engineering">
+                      Mechanical Engineering
+                    </option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                  </select>
+                </div>
+
+                <div className="w-full md:w-1/2 px-2">
+                  <label className="block pb-2">Date of Birth</label>
+                  <input
+                    type="date"
+                    className={`${styles.input} w-full mb-4`}
+                    required={isStudent}
+                    value={dateOfBirth ? dateOfBirth.substring(0, 10) : ""}
+                    onChange={(e) => setDateOfBirth(e.target.value)}
                   />
                 </div>
               </div>
