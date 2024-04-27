@@ -7,7 +7,7 @@ import { cartReducer } from "./reducers/cart";
 import { wishlistReducer } from "./reducers/wishlist";
 import { orderReducer } from "./reducers/order";
 import { resourceReducer } from "./reducers/resources";
-
+import { appointmentReducer } from "./reducers/appointments";
 const Store = configureStore({
   reducer: {
     user: userReducer,
@@ -18,6 +18,7 @@ const Store = configureStore({
     wishlist: wishlistReducer,
     order: orderReducer,
     resource: resourceReducer,
+    appointment: appointmentReducer,
   },
 });
 

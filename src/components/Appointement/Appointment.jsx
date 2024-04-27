@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { loadResources } from "../../redux/actions/resources.js";
+import { loadAppointment } from "../../redux/actions/appointment";
 import {
   Table,
   TableBody,
@@ -40,25 +41,31 @@ function Appointment() {
   const timeSlots = generateTimeSlots();
   const [selectedOption, setSelectedOption] = useState("");
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-    //   dispatch(loadResources());
-    //   if (error) {
-  //     toast.error(error);
-  //     dispatch({ type: "clearErrors" });
-  //   }
-  //   if (successMessage) {
-  //     toast.success(successMessage);
-  //     dispatch({ type: "clearMessages" });
-  //   }
-  // }, [error, successMessage,dispatch]);
+  const { user, error, successMessage } = useSelector((state) => state.user);
+  const {
+    resources,
+    error: errorResources,
+    successMessage: successMessageResources,
+  } = useSelector((state) => state.resource);
+  const {
+    appointments,
+    error: errorAppointments,
+    successMessage: successMessageAppointments,
+  } = useSelector((state) => state.appointment);
   useEffect(() => {
+    dispatch(loadAppointment());
     dispatch(loadResources());
-  }, [dispatch]);
-  const {resources} = useSelector(
-    (state) => state.resource
-  );
-  console.log(resources);
+    if (error) {
+      toast.error(error);
+      dispatch({ type: "clearErrors" });
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch({ type: "clearMessages" });
+    }
+  }, [dispatch, error, successMessage]);
+
+  console.log(appointments);
   function generateTimeSlots() {
     const timeSlots = [];
     let currentTime = new Date();
@@ -105,48 +112,92 @@ function Appointment() {
     setSidebarOption(option);
     setSelectedOption(option);
   };
+  const handleResourceChange = (resourceName) => {
+    setSelectedOption(resourceName);
+  };
+  const isSlotBooked = (time, index) => {
+    // Filter appointments for the selected resource
+    const resourceAppointments = appointments.filter(
+      (appointment) => appointment.resourceName === selectedOption
+    );
+  
+    // Get the date corresponding to the current column
+    const currentDate = addDays(startDate, index);
+  
+    // Format the current date and time
+    const formattedDateTime = format(currentDate, "dd/MM/yyyy") + " " + time;
+  
+    // Check if there is an appointment at the specified time for the selected resource
+    return resourceAppointments.some(
+      (appointment) => format(appointment.dateTime, "dd/MM/yyyy HH:mm") === formattedDateTime
+    );
+  };
+  
 
   const renderContent = () => {
     switch (sidebarOption) {
       case "myAppointments":
         return (
-          <TableContainer
-            component={Paper}
-            style={{ padding: "15px", marginBottom: "20px", width: "85vw" }}
-          >
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Time</TableCell>
-                  {[...Array(rowsPerPage)].map((_, index) => (
-                    <TableCell key={index}>
-                      {format(addDays(startDate, index), "dd/MM/yyyy (E)")}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {timeSlots.map((time, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{time}</TableCell>
-                    {[...Array(rowsPerPage)].map((_, index) => (
-                      <TableCell
-                        key={index}
-                        onClick={() => handleSlotClick(time)}
-                        className="slot"
-                        style={{
-                          border: "1px solid black",
-                          cursor: "pointer",
-                        }}
-                      >
-                        {selectedSlot === time && "Selected"}
-                      </TableCell>
+          <div>
+            {/* Dropdown menu to select resource */}
+            <select
+              value={selectedOption}
+              onChange={(e) => handleResourceChange(e.target.value)}
+            >
+              <option value="">Select Resource</option>
+              {resources.map((res, index) => (
+                <option key={index} value={res.resourceName}>
+                  {res.resourceName}
+                </option>
+              ))}
+            </select>
+            {/* Table for selected resource */}
+            {selectedOption && (
+              <TableContainer
+                component={Paper}
+                style={{
+                  padding: "15px",
+                  marginBottom: "20px",
+                  width: "85vw",
+                }}
+              >
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Time</TableCell>
+                      {[...Array(rowsPerPage)].map((_, index) => (
+                        <TableCell key={index}>
+                          {format(addDays(startDate, index), "dd/MM/yyyy (E)")}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {timeSlots.map((time, index) => (
+                      <TableRow key={index}>
+                        <TableCell>{time}</TableCell>
+                        {[...Array(rowsPerPage)].map((_, index) => (
+                          <TableCell
+                            key={index}
+                            className="slot"
+                            style={{
+                              border: "1px solid black",
+                              cursor: "pointer",
+                              backgroundColor: isSlotBooked(time, index)
+                                ? "green"
+                                : "white",
+                            }}
+                          >
+                            {isSlotBooked(time, index) && "Booked"}
+                          </TableCell>
+                        ))}
+                      </TableRow>
                     ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            )}
+          </div>
         );
       case "resources":
         return (
