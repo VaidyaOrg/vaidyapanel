@@ -1,17 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
 const initialState = {
-    loading: true,
+    isLoading: true,
   };
 export const resourceReducer = createReducer(initialState,{
     LoadResourcesRequest:(state) => {
-        state.loading = true
+        state.isLoading = true
     },
     LoadResourcesSuccess:(state,action)=>{
-        state.loading = false;
+        state.isLoading = false;
         state.resources = action.payload;
     },
     LoadResourcesFail:(state,action)=>{
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.payload;
     }
 })
