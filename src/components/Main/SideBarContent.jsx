@@ -29,6 +29,7 @@ import Appointment from "../Appointement/Appointment";
 import LabTest from "../LabTest/LabTest";
 import EventSidebar from "../Events/EventSidebar";
 import Reimbursment from "../Reimbursment/Reimbursment";
+import PsyCounselor from "../Profile/counselorProfile";
 const SideBarContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
@@ -133,6 +134,11 @@ const SideBarContent = ({ active }) => {
       {active === 6 && (
         <div>
           <Reimbursment />
+        </div>
+      )}
+      {active === 7 && (
+        <div>
+          <PsyCounselor />
         </div>
       )}
     </div>

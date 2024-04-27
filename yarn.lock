@@ -1162,6 +1162,20 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@coreui/coreui@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@coreui/coreui/-/coreui-5.0.0.tgz#5e5cfd3ac05250acd3d07dc8cd36a54d2c8ed648"
+  integrity sha512-okQEoPVOqIQOH9aDN9jfgrjuMTgZ1YX/S81wWP5WuMmx5u0s8K+BXXDja5bbl4eP703+rElew/tHqGEAn+89Gw==
+
+"@coreui/react@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@coreui/react/-/react-5.0.0.tgz#23f65ca945ebcf501872ee6482ecea116d6e4f1e"
+  integrity sha512-LnYloIOq3T1mgZNEEoni1yScsg3ad2r/q1tUQt0+HabyiYXV4OVHWXv0Y7sneUWNzv5yx+3BlJldGHVXDRuImQ==
+  dependencies:
+    "@coreui/coreui" "^5.0.0"
+    "@popperjs/core" "^2.11.8"
+    prop-types "^15.8.1"
+
 "@csstools/normalize.css@*":
   version "12.1.1"
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-12.1.1.tgz#f0ad221b7280f3fc814689786fd9ee092776ef8f"

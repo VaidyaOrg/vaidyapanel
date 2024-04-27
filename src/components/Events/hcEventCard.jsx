@@ -17,7 +17,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export default function UserCard() {
+export default function UserCard({name, date, time, venue}) {
   return (
     <Box
       sx={{
@@ -34,37 +34,7 @@ export default function UserCard() {
           overflow: { xs: 'auto', sm: 'initial' },
         }}
       >
-        <Box
-          sx={{
-            position: 'absolute',
-            display: 'block',
-            width: '1px',
-            bgcolor: 'warning.300',
-            left: '500px',
-            top: '-24px',
-            bottom: '-24px',
-            '&::before': {
-              top: '4px',
-              content: '"vertical"',
-              display: 'block',
-              position: 'absolute',
-              right: '0.5rem',
-              color: 'text.tertiary',
-              fontSize: 'sm',
-              fontWeight: 'lg',
-            },
-            '&::after': {
-              top: '4px',
-              content: '"horizontal"',
-              display: 'block',
-              position: 'absolute',
-              left: '0.5rem',
-              color: 'text.tertiary',
-              fontSize: 'sm',
-              fontWeight: 'lg',
-            },
-          }}
-        />
+        <Box />
         <Card
           orientation="horizontal"
           sx={{
@@ -84,7 +54,7 @@ export default function UserCard() {
           </AspectRatio>
           <CardContent>
             <Typography fontSize="xl" fontWeight="lg">
-              Blood Donation Camp
+              {name}
             </Typography>
             <Typography level="body-sm" fontWeight="lg" textColor="text.tertiary">
               ------------------
@@ -104,19 +74,19 @@ export default function UserCard() {
                 <Typography level="body-xs" fontWeight="lg">
                   Date
                 </Typography>
-                <Typography fontWeight="lg">01-05-2024</Typography>
+                <Typography fontWeight="lg">{date}</Typography>
               </div>
               <div>
                 <Typography level="body-xs" fontWeight="lg">
                   Time
                 </Typography>
-                <Typography fontWeight="lg">9:30 A.M. - 4:30 P.M.</Typography>
+                <Typography fontWeight="lg">{time}</Typography>
               </div>
               <div>
                 <Typography level="body-xs" fontWeight="lg">
                   Venue
                 </Typography>
-                <Typography fontWeight="lg">Sushrut Block</Typography>
+                <Typography fontWeight="lg">{venue}</Typography>
               </div>
             </Sheet>
             <Box sx={{ display: 'flex', gap: 1.5, '& > button': { flex: 1 } }}>
