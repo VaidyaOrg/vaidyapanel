@@ -647,3 +647,13 @@ export const footerSupportLinks = [
     name: "Contact Us",
   },
 ];
+
+
+export const footerSupportLinks2 = [
+  {
+    name: "Emergency Contact",
+  },
+  {
+    name: "Report a Problem"
+  },
+]
