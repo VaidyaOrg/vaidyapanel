@@ -7,8 +7,8 @@ import {
   MdOutlineTrackChanges,
 } from "react-icons/md";
 import { TbAddressBook } from "react-icons/tb";
-import { RxPerson } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 
 const SidebarLeft = ({ setActive, active }) => {
   const navigate = useNavigate();
