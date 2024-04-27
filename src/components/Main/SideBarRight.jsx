@@ -42,8 +42,10 @@ const SidebarRight = ({ setActive, active }) => {
         </span>
       </div>
       {/* Calendar */}
-      <div className="mb-8 w-[80%] ml-7">
-        <Calendar className="w-1" defaultValue={today} value={today} />
+      <div className="mb-8 w-full md:w-[80%] mx-auto"> 
+        <div className="rounded-lg overflow-hidden border border-gray-200"> 
+          <Calendar className="w-full" defaultValue={today} value={today} />
+        </div>
       </div>
 
       {/* Latest Circulars */}
