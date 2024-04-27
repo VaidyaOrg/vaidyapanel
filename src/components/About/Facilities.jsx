@@ -1,5 +1,7 @@
 import React from "react";
 import { Typography } from '@mui/material';
+import BasicTable from "./table";
+import DoctorCards from "./StaffCard";
 // import ImageCarousel from './ImageCarousel';
 
 const Facilities = () => {
@@ -29,6 +31,20 @@ const Facilities = () => {
         
           <br />
           <br />
+
+          <p className="text-2xl font-semibold text-center">HC <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Timings</span></p>
+          <br />
+          <br />
+          <BasicTable />
+
+          <br />
+          <br />
+
+          <p className="text-2xl font-semibold text-center">Staff and <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Doctors</span></p>
+          <br />
+          <br />
+          <DoctorCards />
+
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
 import React from "react";
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
 import { RxPerson } from "react-icons/rx";
-import { useState } from "react";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
+import { IoCalendarClearOutline } from "react-icons/io5";
 
 const SidebarRight = ({ setActive, active }) => {
   const today = new Date();
@@ -29,7 +29,7 @@ const SidebarRight = ({ setActive, active }) => {
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(12)}
       >
-        <HiOutlineShoppingBag
+        <IoCalendarClearOutline 
           size={20}
           color={active === 12 ? "#49B9C8" : ""}
         />
@@ -38,28 +38,12 @@ const SidebarRight = ({ setActive, active }) => {
             active === 12 ? "text-[#49B9C8]" : ""
           } 800px:block hidden`}
         >
-          Notifications
+          Event Calendar
         </span>
       </div>
       {/* Calendar */}
-      <div className="mb-8 w-[80%]">
+      <div className="mb-8 w-[80%] ml-7">
         <Calendar className="w-1" defaultValue={today} value={today} />
-      </div>
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(3)}
-      >
-        <HiOutlineReceiptRefund
-          size={20}
-          color={active === 3 ? "#49B9C8" : ""}
-        />
-        <span
-          className={`pl-3 ${
-            active === 13 ? "text-[#49B9C8]" : ""
-          } 800px:block hidden`}
-        >
-          External Links
-        </span>
       </div>
 
       {/* Latest Circulars */}
