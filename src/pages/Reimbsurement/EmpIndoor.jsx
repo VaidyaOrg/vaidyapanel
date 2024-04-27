@@ -2,7 +2,7 @@ import React from 'react'
 import Header from "../../components/Layout/Main/Header";
 import Loader from "../../components/Layout/Loader";
 import Footer from "../../components/Layout/Main/Footer";
-import About from '../../components/About/About';
+import Form2 from '../../components/Reimbursment/Forms/Form2';
 import { useSelector } from "react-redux";
 
 const EmpIndoor = () => {
@@ -14,7 +14,7 @@ const EmpIndoor = () => {
     ) : (
       <div>
         <Header activeHeading={1} />
-        <About />
+        <Form2/>
         <Footer/>
       </div>
     )}
