@@ -14,8 +14,42 @@ function Form1() {
             <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: 'bold' }}>I. Information of the Claimant</Typography>
 
             <form>
-                {/* Form fields go here */}
-            </form>
+                    <div className=" container row ms-3">
+                        <div className="col col-xs-12 m-3">
+                            <label className="mb-1" htmlFor="claimantName">*Claimant's Name:</label>
+                            <div className='row inpbox'>
+                                <div className='col'>
+                                    <input className='form-control me-1 mb-2' type="text" id="claimantName" name="claimantName" placeholder='First Name' />
+                                </div>
+                                <div className='col'>
+                                    <input className='form-control mb-2' type="text" id="claimantName" name="claimantName" placeholder='Last Name' />
+                                </div>
+                            </div>
+                            <label className="mb-1" htmlFor="designation">*Designation:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="designation" name="designation" />
+
+                            <label className="mb-1" htmlFor="department">*Department:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="department" name="department" />
+
+                           
+                        </div>
+
+                        <div className="col col-xs-12 m-3">
+
+                            <label className="mb-1" htmlFor="employeeCode">*Employee Code:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="employeeCode" name="employeeCode" />
+
+                            <label className="mb-1" htmlFor="telNo">*Tel. No.:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="telNo" name="telNo" placeholder='00000 00000' />
+
+                            <label className="mb-1" htmlFor="emailId">*Email ID:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="emailId" name="emailId" placeholder='name@example.com' />
+
+                           
+                           
+                        </div>
+                    </div>
+             </form>
 
             <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: 'bold' }}>II. Information regarding the patient</Typography>
 
