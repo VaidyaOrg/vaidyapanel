@@ -57,6 +57,7 @@ body {
     width: 300px;
     margin: 15px;
   }
+
   @media screen and (max-width: 420px) {
     .optbtn {
       width: 150px;
@@ -74,3 +75,4 @@ body {
       width: fit-content;
     }
   }
+

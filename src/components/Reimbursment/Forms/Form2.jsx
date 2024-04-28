@@ -1,9 +1,9 @@
-
-import React, { useState } from "react";
-import axios from "axios";
+import React,{useState} from 'react';
+import { Box, Typography, TextField, Button, Checkbox, FormControlLabel } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 function Form2() {
-    
+
     const [formData, setFormData] = useState({
         claimantFirstName: "",
         claimantLastName: "",
@@ -34,6 +34,16 @@ function Form2() {
         claimT_1_8: "",
         claimT_1_9: "",
         claimT_1_10: "",
+        claimT_1_11: "",
+        claimT_1_12: "",
+        claimT_1_13: "",
+        claimT_1_14: "",
+        claimT_1_15: "",
+        claimT_1_16: "",
+        claimT_1_17: "",
+        claimT_1_18: "",
+        claimT_1_19: "",
+        claimT_1_20: "",
         claimT_2_1: "",
         claimT_2_2: "",
         claimT_2_3: "",
@@ -64,7 +74,6 @@ function Form2() {
 
         // Add other form fields here
       });
-    
       const handleChange = (e) => {
         setFormData({
           ...formData,
@@ -75,7 +84,7 @@ function Form2() {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post("http://localhost:5000/apis/staffipd/formfillipd", formData);
+          const response = await axios.post("http://localhost:5000/apis/users/formfill", formData);
           console.log(response.data);
           // Handle success, e.g., show a success message to the user
         } catch (error) {
@@ -84,439 +93,478 @@ function Form2() {
           // Handle error, e.g., show an error message to the user
         }
       };
-    
-    
-    
-    
-    
-    
-    
-    return (
-        <>    <div className='formwid' style={{ backgroundColor: "#d9d5ed", border: "10px solid #5bbad5" }}>
-            <div className='container '>
 
-                <h4 className="info py-4" >MEDICAL CLAIM FORM (INDOOR TREATMENT) </h4>
+  return (
+    <Box
+      sx={{
+        p: 2,
+        m: 4,
+        bgcolor: "background.paper",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+        borderRadius: "12px",
+      }}
+    >
+      <Typography variant="h4" align="center" sx={{ pt: 2 }}>
+        Medical Claim Form{" "}
+        <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+          Indoor Treatment
+        </span>
+      </Typography>
 
-                <h5 className='text-center'>
-                    Application for claiming reimbursement of medical expenses incurred in connection with medical
-                    attendance/treatment for members of employees of the IIT Bhilai and their families.
-                </h5>
-                <p className="fw-bold">
-                    I. Status Information of the Claimant
-                </p>
+      <Typography variant="body1" align="center" sx={{ mt: 4 }}>
+        Application for claiming reimbursement of medical expenses incurred in
+        connection with medical attendance/treatment for members of employees of
+        the IIT Bhilai and their families.
+      </Typography>
 
-                <form>
-                    <div className=" container row ms-3">
-                        <div className="col col-xs-12 m-3">
+      <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+        I. Information of the Claimant
+      </Typography>
+
+      <form>
+        <div className=" container row ms-3">
+          {/* <div className="col col-xs-12 m-3">
                             <label className="mb-1" htmlFor="claimantName">*Claimant's Name:</label>
                             <div className='row inpbox'>
                                 <div className='col'>
-                                    <input className='form-control me-1 mb-2' type="text" id="claimantName" name="claimantName" placeholder='First Name' 
-                                    value={formData.claimantFirstName}
-                                    onChange={handleChange}
-                                    />
+                                    <input className='form-control me-1 mb-2' type="text" id="claimantName" name="claimantName" placeholder='First Name' />
                                 </div>
-
                                 <div className='col'>
-                                    <input className='form-control mb-2' type="text" id="claimantName" name="claimantName" placeholder='Last Name' 
-                                    value={formData.claimantLastName}
-                                    onChange={handleChange}
-                                    />
+                                    <input className='form-control mb-2' type="text" id="claimantName" name="claimantName" placeholder='Last Name' />
                                 </div>
-
                             </div>
                             <label className="mb-1" htmlFor="designation">*Designation:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="designation" name="designation" 
-                            value={formData.designation}
-                            onChange={handleChange}
-                            />
+                            <input className='form-control mb-2 inpbox' type="text" id="designation" name="designation" />
 
                             <label className="mb-1" htmlFor="department">*Department:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="department" name="department" 
-                            value={formData.dept}
-                            onChange={handleChange}
-                            />
+                            <input className='form-control mb-2 inpbox' type="text" id="department" name="department" />
 
-                            <label className="mb-1" htmlFor="entitlement">*Entitlement of ward:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="entitlement" name="entitlement" 
-                            value={formData.entitlement}
-                            onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="col col-xs-12 m-3">
-
-                            <label className="mb-1" htmlFor="employeeCode">*Employee Code:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="employeeCode" name="employeeCode" 
-                            value={formData.employeecode}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="telNo">*Tel. No.:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="telNo" name="telNo" placeholder='00000 00000' 
-                            value={formData.telephoneNo}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="emailId">*Email ID:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="emailId" name="emailId" placeholder='name@example.com' 
-                            value={formData.emailid}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="payBand">*Pay in Pay Band & Grade Pay (Rs.):</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="payBand" name="payBand" 
-                            value={formData.payinpayband}
-                            onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                </form>
-                <p className="fw-bold">
-                    II. Information regarding the patient
-                </p>
-                <form>
-                    <div className="row mb-3 ms-3">
-                        <div className="col m-3">
-                            <label className="mb-1" htmlFor="patientName">*Patient's Name:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="patientName" name="patientName" 
-                            value={formData.patientName}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="natureOfIllness">*Nature of illness & its period:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="natureOfIllness" name="natureOfIllness" 
-                            value={formData.natureofIllness}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="referredHospital">*Referred Hospital Name:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="referredHospital" name="referredHospital" 
-                            value={formData.referredHospital}
-                            onChange={handleChange}
-                            />
-                        </div>
-                        <div className="col m-3">
-                            <label className="mb-1" htmlFor="relationship">*Relationship:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="relationship" name="relationship" 
-                            value={formData.relationship}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-1" htmlFor="referringAMADate">*Name of Referring AMA/Date:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="referringAMADate" name="referringAMADate" 
-                            value={formData.referringAMADate}
-                            onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                </form>
-                <h4>Details of Treatment</h4>
-                <div className='table-responsive-sm row'>
-                    <div className=' col'>
-                        <table className="table table-custom ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">S.No.</th>
-                                    <th scope="col">Particulars</th>
-                                    <th scope="col">Claim Submitted (Rs)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Accommodation/ Bed Charges </td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_1}
-                                    onChange={handleChange}
-                                    />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Registration Fee</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_2}
-                                    onChange={handleChange}
-                                    /></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Consultation/ Doctor</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_3}
-                                    onChange={handleChange}
-                                    /></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Surgeon Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_4}
-                                    onChange={handleChange}
-                                    /></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Nursing Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_5}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Operation Theater Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_6}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>X-ray</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_7}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>Hospital Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_8}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>Physiotherapy Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_9}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Blood Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_1_10}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                            </tbody>
-                        </table></div>
-                    <div className='col'>
-                        <table className="table table-custom ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">S.No.</th>
-                                    <th scope="col">Particulars</th>
-                                    <th scope="col">Claim Submitted (Rs)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>11</td>
-                                    <td>Test & Procedure</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_1}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>Angioplasty Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_2}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                    <td>Medicine Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_3}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                    <td>Medicine Purchased from market</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_4}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                    <td>Imaging Service Charges
-                                    </td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_5}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>16</td>
-                                    <td>Diagnostic Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_6}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>17</td>
-                                    <td>ECG</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_7}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>18</td>
-                                    <td>Consumable Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_8}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>19</td>
-                                    <td>Any other Charges paid to Hospital</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_9}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>20</td>
-                                    <td>Miscellaneous Charges</td>
-                                    <td><input className='claimInput form-control' type="text"  
-                                    value={formData.claimT_2_10}
-                                    onChange={handleChange}
-                                    /></td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div className=" row d-flex-end">
-                    <span className="col col-xs-12">
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text bg-dark bg-gradient text-white" id="inputGroup-sizing-sm" >Total Claim submitted (Rs):</span>
-                            <input type="text" className="form-control" />
-                        </div>
-                    </span>
-                    <span className="col col-xs-12">
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text bg-dark bg-gradient text-white" id="inputGroup-sizing-sm">Total no of Enclosures:</span> 
-                            <input type="text" className="form-control" />
-                        </div>
-                    </span>
-                </div>
-                <h4 className="space mt-5">
-                    Attachments(Self Attested)
-                </h4>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <div className="row ms-3 mb-4">
-                        <div className="col m-3">
-                            <label className="mb-2" htmlFor="file">*IIT Bhiai Health Center Referral</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required 
-                            value={formData.HCReferral}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-2" htmlFor="file">*Original Bill Receipts</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required 
-                            value={formData.BillReceipt}
-                            onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="col m-3">
-                            <label className="mb-2" htmlFor="file">If dependent copy of dependent booklet</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required 
-                            value={formData.dependentbooklet}
-                            onChange={handleChange}
-                            />
-
-                            <label className="mb-2" htmlFor="file">*Copy of Prescription</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required 
-                            value={formData.prescriptionFile}
-                            onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                </form>
-                <br />
-                <div className=' bg-gradient p-3 mt-4' style={{ borderRadius: "20px", backgroundColor: "#aee9fa", border: "1px solid black" }}>
-                    <span>Note:</span>
-                    <ol>
-                        <li>
-                            If the treatment was received by a member of the employee at his residence, give particulars of such treatment
-                            and attach certificate from the Authorized Medical Attendant, as required by rules.
-                        </li>
-                        <li>
-                            If treatment was received at a Hospital other than a Government/Recognized Hospital, necessary details and
-                            the certificate of the Authorized Medical Attendant to the effect that the requisite medical treatment was not
-                            available in any nearest Government Hospital should be furnished.
-
-                        </li>
-                    </ol>
-                </div>
-                <h4 className="mt-5 my-3">Declaration :</h4>
-                <div class="ms-2">
-                    <input class="form-check-input mt-3 mb-1" type="checkbox" value="" id="flexCheckDefault"/>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        <p> 
-                            I hereby declare that the statement made in this application are true to the best of my knowledge and belief/and that
-                            the person for whom medical expenses were incurred is wholly dependent upon me and is not an earning member of
-                            the family. </p>
+                           
+                        </div> */}
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <label htmlFor="claimantName" className="mb-1">
+                      *Claimant's Name:
                     </label>
-                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="claimantFirstName"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="empid" className="mb-1">
+                      *Employee ID.:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="empid" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                  <label htmlFor="designation" className="mb-1">
+                      *Designation:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="designation"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="tel" className="mb-1">
+                      *Tel. No. :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="tel" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>
+                    <label htmlFor="department" className="mb-1">
+                      *Department :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="department" variant="outlined" fullWidth />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="email" className="mb-1">
+                      *Email ID:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="email" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>
+                    <label htmlFor="ward" className="mb-1">
+                      *Entitlement of ward :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="ward" variant="outlined" fullWidth />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="pay" className="mb-1">
+                      *Pay in Pay Band & Grade Pay (Rs.):
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="pay" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </form>
 
-                        <div className="row">
-                            <div className="col m-3">
-                                <label htmlFor="dateInput">Date</label>
-                                <input className='form-control inpbox' type="date" id="dateInput" 
-                                value={formData.SubmissionDate}
-                                onChange={handleChange}
-                                />
-                            </div>
-                            <div className="col m-3">
-                                <label htmlFor="signatureFile">Signature of the Claimant</label>
-                                <input className='form-control inpbox' type="file" id="signatureFile" name="signatureFile" accept="image/*" required 
-                                value={formData.signatureFile}
-                                onChange={handleChange}
-                                />
+      <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+        II. Information regarding the patient
+      </Typography>
 
+      <form>
+        <div className=" container row ms-3">
+          {/* <div className="col col-xs-12 m-3">
+                            <label className="mb-1" htmlFor="claimantName">*Claimant's Name:</label>
+                            <div className='row inpbox'>
+                                <div className='col'>
+                                    <input className='form-control me-1 mb-2' type="text" id="claimantName" name="claimantName" placeholder='First Name' />
+                                </div>
+                                <div className='col'>
+                                    <input className='form-control mb-2' type="text" id="claimantName" name="claimantName" placeholder='Last Name' />
+                                </div>
                             </div>
-                            <div className='text-center'>
-                                <a href="/Thankyou" type="button" class="btn btn-primary btn-lg m-3" onClick={handleSubmit}>Submit</a>
-                            </div>
-                        </div>
-                    </div >
-                </div >
-            </>
-            );
+                            <label className="mb-1" htmlFor="designation">*Designation:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="designation" name="designation" />
+
+                            <label className="mb-1" htmlFor="department">*Department:</label>
+                            <input className='form-control mb-2 inpbox' type="text" id="department" name="department" />
+
+                           
+                        </div> */}
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <label htmlFor="patientName" className="mb-1">
+                      *Patient's Name:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="patientFirstName"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="relationship" className="mb-1">
+                      *Relationship :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="relationship" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                  <label htmlFor="illness" className="mb-1">
+                      *Nature of illness & its period :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="illness"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="refer" className="mb-1">
+                      *Name of Referring AMA/Date :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="refer" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                <TableCell>
+                    <label htmlFor="hospital" className="mb-1">
+                      *Referred Hospital Name :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="hospital" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </form>
+
+      <Typography variant="h6" sx={{ mt: 4 }}>III. Hospital Expenses Information</Typography>
+
+<TableContainer>
+    <Table border="1" border-collapse="collapse">
+        <TableHead>
+            <TableRow>
+                <TableCell>S.No.</TableCell>
+                <TableCell>Particulars</TableCell>
+                <TableCell>Claim Submitted (Rs)</TableCell>
+                <TableCell>Claim Submitted (Rs)</TableCell>
+            </TableRow>
+        </TableHead>
+        <TableBody>
+                    <tr>
+                        <td>1</td>
+                        <td>Accommodation/ Bed Charges </td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_1}
+                        onChange={handleChange}
+                        />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Registration Fee</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_2}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Consultation/ Doctor</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_3}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Surgeon Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_4}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Nursing Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_5}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Operation Theater Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_6}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>X-ray</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_7}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Hospital Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_8}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Physiotherapy Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_9}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Blood Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_10}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Test & Procedure </td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_11}
+                        onChange={handleChange}
+                        />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Angioplasty Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_12}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Medicine Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_13}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Medicine Purchased from market</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_14}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Imaging Service Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_5}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Diagnostic Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_16}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>ECG</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_17}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Consumable Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_18}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Any other Charges paid to Hospital</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_19}
+                        onChange={handleChange}
+                        /></td>
+
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Miscellaneous Charges</td>
+                        <td><input className='claimInput form-control' type="text"  
+                        value={formData.claimT_1_20}
+                        onChange={handleChange}
+                        /></td>
+                    </tr>
+        </TableBody>
+    </Table>
+</TableContainer>
+
+      <Box sx={{ mt: 4, display: "flex", justifyContent: "space-between" }}>
+        <TextField
+          label="Total Claim submitted (A+B):"
+          variant="outlined"
+          size="small"
+        />
+        <TextField
+          label="Total no of Enclosures:"
+          variant="outlined"
+          size="small"
+        />
+      </Box>
+
+      <Typography variant="h6" sx={{ mt: 4 }}>
+        Attachments(Self Attested)
+      </Typography>
+
+      <form>{/* File upload fields go here */}</form>
+
+      <Typography variant="h6" sx={{ mt: 4 }}>
+        Declaration :
+      </Typography>
+
+      <Box sx={{ mt: 2 }}>
+        <Typography variant="body1">
+          Countersigned and certified that the claim :
+        </Typography>
+        <ol>
+          <li>Is genuine.</li>
+          <li>Is covered by the rules and order of the subject.</li>
+          <li>Is supported by bills, receipt and other certificates etc.</li>
+          <li>Was not drawn before and</li>
+          <li>Has been sanctioned/countersigned by me.</li>
+        </ol>
+      </Box>
+
+      <FormControlLabel
+        control={<Checkbox />}
+        label="I hereby declare that the statement made in this application are true to the best of my knowledge and belief/and that the person for whom medical expenses were incurred is wholly dependent upon me and is not an earning member of the family."
+      />
+
+      <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between" }}>
+        <TextField label="" type="date" size="small" />
+        <TextField label="" type="file" size="small" />
+      </Box>
+
+      <Box sx={{ mt: 2, textAlign: "center" }}>
+        <Button variant="contained" color="primary" size="large">
+          Submit
+        </Button>
+      </Box>
+    </Box>
+  );
 }
 
-            export default Form2
+export default Form2;
+
+
