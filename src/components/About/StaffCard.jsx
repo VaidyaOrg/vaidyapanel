@@ -56,41 +56,41 @@ export default function DoctorCards() {
       name: 'Dr. Atul Prakash Srivastave',
       role: 'General Physician',
       contact: '+91 xxxxx xxxxx',
-      image: 'image.png',
+      image: 'doctor.jpg',
     },
     {
       name: 'Dr. Keshav Dewangan',
       role: 'General Medicine',
       contact: '+91 xxxxx xxxxx',
-      image: 'image.png',
+      image: 'doctor.jpg',
       book: 'link_to_booking'
     },
     {
         name: 'Dr. Sarita Khandelwal',
         role: 'Obs & Gynae',
         contact: '+91 xxxxx xxxxx',
-        image: 'image.png',
+        image: 'doctor.jpg',
         book: 'link_to_booking'
       },
       {
         name: 'Mr. Raghvendra Sharma',
         role: 'General Medicine',
         contact: '+91 xxxxx xxxxx',
-        image: 'image.png',
+        image: 'doctor.jpg',
         book: 'link_to_booking'
       },
       {
         name: 'Mrs. Deeplata Thakre',
         role: 'Staff Nurse',
         contact: '+91 xxxxx xxxxx',
-        image: 'image.png',
+        image: 'doctor.jpg',
         book: 'link_to_booking'
       },
       {
         name: 'Ms. Priyanka Malhotra',
         role: 'Staff Nurse',
         contact: '+91 xxxxx xxxxx',
-        image: 'https://d3n2v804uranu1.cloudfront.net/wp-content/uploads/2023/12/Priyanka-Malhotra-Counsellor-Mandi-and-Bhilai-1.jpeg',
+        image: 'doctor.jpg',
         book: 'link_to_booking'
       },
     // Add more doctors/staff as needed
