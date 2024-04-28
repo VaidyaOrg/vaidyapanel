@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import InsuranceTable from './InsuranceTable'
 import Typography from '@mui/joy/Typography';
+import { InfoOutlined } from '@mui/icons-material';
 
 
 const Insurance = () => {
@@ -15,6 +16,11 @@ const Insurance = () => {
             <Typography>Period of Insurance : 18-08-2023 to 17-08-2024</Typography>
             <br />
             <InsuranceTable />
+            <br />
+            <Typography startDecorator={<InfoOutlined />} mb={2}>
+            Before admission of the hospital contact to Mr. Pranjal Sharma or Health Centre to know more details about health insurance.
+            </Typography>
+            <Typography>Cashless can be provided all network hospitals of health insurance (Paramount TPA).</Typography>
         </div>
       </div>
     )

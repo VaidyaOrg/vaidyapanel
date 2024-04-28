@@ -1,89 +1,95 @@
 import React from "react";
+import Typography from "@mui/material/Typography";
+import { Player } from "@lottiefiles/react-lottie-player";
+import Lottie from "react-lottie";
 // import ImageCarousel from './ImageCarousel';
 
 const About = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData:
+      "https://lottie.host/3515fc4e-24c4-4ae0-b01a-55f3110d3cab/JRloRXmLIk.json",
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
-    <div>
+    <div className="bg-white ml-5 mr-5 pb-6 pt-10 rounded-md pl-20 pr-20">
       {/* Image Carousel */}
       {/* <ImageCarousel /> */}
-
-      <p>
-        Culpa qui occaecat reprehenderit ullamco officia elit officia esse esse
-        dolor. Qui nostrud in eu quis. Non Lorem ut fugiat voluptate tempor do
-        tempor velit. Officia sunt voluptate adipisicing fugiat sint est cillum
-        commodo id pariatur proident enim exercitation quis. Dolor minim eu
-        laboris labore duis laboris deserunt nisi culpa sint. Fugiat anim sint
-        enim consequat occaecat. Veniam ut voluptate dolor eu cupidatat
-        consequat aliqua. Incididunt eiusmod reprehenderit velit duis Lorem
-        labore ullamco labore. Et magna cupidatat cillum reprehenderit velit
-        officia. Ea anim laborum excepteur sint consectetur eiusmod ullamco
-        excepteur deserunt. Nisi esse enim eiusmod mollit ullamco. Eiusmod
-        eiusmod consectetur veniam sunt eiusmod. Dolore ut consequat deserunt
-        elit aute. Nisi culpa incididunt et proident reprehenderit qui quis
-        cillum esse. Ex deserunt nisi id aliqua amet proident aliquip aliquip.
-        Ex irure occaecat do ut laboris ea nisi exercitation enim nisi.
-        Voluptate anim anim sint irure irure id officia. Cillum cupidatat
-        cupidatat ipsum consequat ut aliquip enim adipisicing laborum cillum
-        deserunt fugiat exercitation sint. Dolor sit esse tempor fugiat
-        incididunt aute tempor aliquip magna.
+      <p className="text-2xl font-semibold text-center">
+        About{" "}
+        <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+          Sushrut
+        </span>
       </p>
+      <br />
+
+      <Typography>
+        Welcome to the Health Center of IIT Bhilai, your dedicated resource for
+        health and wellness on campus. Our center is committed to promoting the
+        well-being of our students, faculty, and staff through comprehensive
+        healthcare services and support. We understand that a healthy body and
+        mind are essential for academic success and personal growth. That's why
+        our Health Center offers a wide array of services tailored to meet the
+        diverse needs of our campus community. From routine check-ups to
+        specialized care, we strive to provide accessible and compassionate
+        healthcare to all. At the Health Center, we take a holistic approach to
+        healthcare, recognizing the interconnectedness of physical, mental, and
+        emotional well-being. Our team of experienced healthcare professionals
+        is dedicated to addressing not just the symptoms, but also the
+        underlying factors contributing to your health concerns.
+      </Typography>
+      <br />
       {/* Heading */}
-      <h2>About Us</h2>
 
       {/* Paragraph */}
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel
-        lacinia libero, vel efficitur mauris. Nullam eleifend elit in lacinia
-        dignissim. Non labore adipisicing sint et. Eiusmod aute ipsum commodo
-        voluptate sunt sunt. Officia aliqua enim esse reprehenderit laboris
-        excepteur deserunt ex exercitation et. Est excepteur magna ea nostrud
-        aliqua aliqua sunt cillum eiusmod laborum elit laboris amet est. Laboris
-        dolore pariatur ut ut. Laborum sunt deserunt ad culpa cupidatat aliqua
-        enim ad sint et. Ex eiusmod fugiat pariatur non voluptate et ad sint
-        dolore et nostrud. Est deserunt voluptate aute non tempor est anim
-        adipisicing. Incididunt laboris elit minim aliqua ea sunt voluptate
-        voluptate mollit nisi. Ut est duis consequat nulla non dolor proident
-        reprehenderit labore culpa sunt est. Consequat exercitation ut commodo
-        veniam in ipsum laborum occaecat quis dolor incididunt. Officia pariatur
-        qui mollit esse in occaecat nulla sunt eiusmod ipsum ad cupidatat.
-        Laboris nisi ullamco reprehenderit aliqua consectetur nostrud do et ex
-        velit. Ea ut est pariatur labore commodo magna ea ipsum aliquip eiusmod.
-        Lorem laborum duis tempor culpa amet commodo dolor amet tempor. Magna
-        culpa occaecat ullamco reprehenderit irure nulla culpa consequat. Ad non
-        dolor culpa enim laborum nisi aute ad velit laboris reprehenderit
-        laborum. Nostrud sint ut do quis sit quis ullamco mollit. Excepteur
-        veniam Lorem tempor aute exercitation id. Dolor nostrud do sint qui
-        proident magna. Commodo commodo voluptate dolor duis ex magna pariatur
-        officia amet eiusmod elit irure aute ex. Pariatur cupidatat eiusmod
-        voluptate in laboris. Officia voluptate elit pariatur dolor sint commodo
-        fugiat ad. Voluptate eu duis cillum laborum esse.
-      </p>
+      <Typography>
+        In addition to primary care services, our Health Center provides mental
+        health support to help students navigate the challenges of university
+        life. Whether you're experiencing stress, anxiety, depression, or simply
+        need someone to talk to, our counselors are here to provide confidential
+        support and guidance. Furthermore, we believe that education is key to
+        empowering individuals to take control of their health. That's why we
+        offer health education programs and workshops aimed at equipping our
+        campus community with the knowledge and skills to make informed
+        decisions about their well-being. Whether you're seeking medical care,
+        emotional support, or health education, the Health Center of IIT Bhilai
+        is here to serve you. Your health is our priority, and we're committed
+        to helping you thrive academically, professionally, and personally.
+        Visit us today and take the first step towards a healthier, happier you.
+      </Typography>
 
       {/* Flex box with logos */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img
-          src="/logo1.png"
-          alt="Logo 1"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
+      <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+        <Player
+          src="https://lottie.host/3515fc4e-24c4-4ae0-b01a-55f3110d3cab/JRloRXmLIk.json"
+          className="player h-[12vw]"
+          autoplay
+          loop 
         />
-        <img
-          src="/logo2.png"
-          alt="Logo 2"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
-        />
-        <img
-          src="/logo3.png"
-          alt="Logo 3"
-          style={{ width: "100px", height: "100px", margin: "0 10px" }}
+        {/* <Lottie options={defaultOptions} height={400} width={400} />
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://lottie.host/3515fc4e-24c4-4ae0-b01a-55f3110d3cab/JRloRXmLIk.json"
+          background="##FFFFFF"
+          speed="1"
+          loop
+          controls
+          autoplay
+          direction="1"
+          mode="normal"
+        ></lottie-player> */}
+        
+        <Player
+          src="https://lottie.host/04862d18-ccb0-44b0-ae99-68ada65f1e00/XQauxzM1C2.json"
+          className="player h-[12vw]"
+          autoplay
+          loop 
         />
       </div>
-
-      {/* Another Paragraph */}
-      <p>
-        Fusce non turpis nec mi sagittis commodo. Maecenas tincidunt tincidunt
-        quam vel scelerisque. Cras eu ex sit amet lorem rutrum malesuada in in
-        mi. Nam gravida sit amet enim vitae vestibulum.
-      </p>
     </div>
   );
 };
