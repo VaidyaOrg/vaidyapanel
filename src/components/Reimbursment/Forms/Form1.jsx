@@ -41,12 +41,12 @@ function Form1() {
         the IIT Bhilai and their families.
       </Typography>
 
-      <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+      <Typography variant="subtitle1" sx={{ mt: 10, fontWeight: "bold" }}>
         I. Information of the Claimant
       </Typography>
 
       <form>
-        <div className=" container row ms-3">
+        <div className="container row ms-3 pt-4">
           {/* <div className="col col-xs-12 m-3">
                             <label className="mb-1" htmlFor="claimantName">*Claimant's Name:</label>
                             <div className='row inpbox'>
@@ -76,7 +76,7 @@ function Form1() {
                   </TableCell>
                   <TableCell>
                     <TextField
-                      id="claimantFirstName"
+                      id="claimantName"
                       variant="outlined"
                       placeholder=""
                       fullWidth
@@ -106,42 +106,42 @@ function Form1() {
                     />
                   </TableCell>
                   <TableCell>
-                    <label htmlFor="department" className="mb-1">
+                    <label htmlFor="telno" className="mb-1">
                       *Tel. No. :
                     </label>
                   </TableCell>
                   <TableCell>
-                    <TextField id="department" variant="outlined" fullWidth />
+                    <TextField id="telno" variant="outlined" fullWidth />
                   </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
-                    <label htmlFor="claimantName" className="mb-1">
-                      *Claimant's Name:
+                    <label htmlFor="department" className="mb-1">
+                      *Department:
                     </label>
                   </TableCell>
                   <TableCell>
                     <TextField
-                      id="claimantFirstName"
+                      id="department"
                       variant="outlined"
-                      placeholder="First Name"
+                      placeholder=""
                       fullWidth
                     />
                   </TableCell>
                   <TableCell>
-                    <label htmlFor="designation" className="mb-1">
-                      *Designation:
+                    <label htmlFor="emailid" className="mb-1">
+                      *Email ID:
                     </label>
                   </TableCell>
                   <TableCell>
-                    <TextField id="designation" variant="outlined" fullWidth />
+                    <TextField id="emailid" variant="outlined" fullWidth />
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
 
-          <div className="col col-xs-12 m-3">
+          {/* <div className="col col-xs-12 m-3">
             <label className="mb-1" htmlFor="employeeCode">
               *Employee Code:
             </label>
@@ -173,7 +173,7 @@ function Form1() {
               name="emailId"
               placeholder="name@example.com"
             />
-          </div>
+          </div> */}
         </div>
       </form>
 
@@ -181,7 +181,85 @@ function Form1() {
         II. Information regarding the patient
       </Typography>
 
-      <form>{/* Form fields go here */}</form>
+      <form>
+      <div className="container row ms-3 pt-4">
+        <TableContainer component={Paper}>
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <label htmlFor="patientName" className="mb-1">
+                      *Patient's Name:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="patientName"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="patientId" className="mb-1">
+                      *ID No.:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="patientId" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                  <label htmlFor="relation" className="mb-1">
+                      *Relationship:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="relation"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="illness" className="mb-1">
+                      *Nature of Illness :
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="illness" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <label htmlFor="reference" className="mb-1">
+                      *Referring AMA:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="reference"
+                      variant="outlined"
+                      placeholder=""
+                      fullWidth
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <label htmlFor="hospital" className="mb-1">
+                      *Hospital Name:
+                    </label>
+                  </TableCell>
+                  <TableCell>
+                    <TextField id="hospital" variant="outlined" fullWidth />
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </form>
 
       <Typography variant="h6" sx={{ mt: 4 }}>
         Details of Treatment
