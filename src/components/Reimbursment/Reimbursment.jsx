@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 const ColorButton = styled(Button)(() => ({
   color: 'black',
   backgroundColor: '#ffffff',
+  border: '1px solid black',
   '&:hover': {
     backgroundColor: '#43A5B2',
     color: 'white'

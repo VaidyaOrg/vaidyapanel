@@ -31,6 +31,8 @@ import LabTest from "../LabTest/LabTest";
 import EventSidebar from "../Events/EventSidebar";
 import Reimbursment from "../Reimbursment/Reimbursment";
 import PsyCounselor from "../Profile/counselorProfile";
+import Insurance from "../Health Insurance/HealthInsurance";
+
 const SideBarContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
@@ -145,6 +147,11 @@ const SideBarContent = ({ active }) => {
       {active === 9 && (
         <div>
           <Hospitals />
+        </div>
+      )}
+      {active === 10 && (
+        <div>
+          <Insurance />
         </div>
       )}
     </div>

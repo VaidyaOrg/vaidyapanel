@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 import Appointment from "../Appointement/Appointment";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(purple[500]),
@@ -15,8 +16,13 @@ const ColorButton = styled(Button)(({ theme }) => ({
       backgroundColor: '#43A5B2'
     },
   }));
+    
 
 function DoctorCard({ name, role, contact, image }) {
+    const navigate = useNavigate(); // Initialize navigate function
+    const handleBookAppointment = () => {
+        navigate('/appointment'); // Navigate to /appointment route
+      };
   return (
     <Card className="w-[15vw] h-[20vw] rounded-md overflow-hidden shadow-lg">
       <CardMedia
@@ -36,7 +42,7 @@ function DoctorCard({ name, role, contact, image }) {
         <Typography variant="body2" color="text.secondary">
           Contact: {contact}
         </Typography>
-        <ColorButton variant= "contained" href={Appointment} className="bg-[#43a5b2]">Book Appointment</ColorButton>
+        <ColorButton variant= "contained" onClick={handleBookAppointment} className="bg-[#43a5b2]">Book Appointment</ColorButton>
         </pre>
       </CardContent>
               
@@ -51,7 +57,6 @@ export default function DoctorCards() {
       role: 'General Physician',
       contact: '+91 xxxxx xxxxx',
       image: 'image.png',
-      book: 'link_to_booking'
     },
     {
       name: 'Dr. Keshav Dewangan',
@@ -100,7 +105,6 @@ export default function DoctorCards() {
           role={doctor.role}
           contact={doctor.contact}
           image={doctor.image}
-          book={doctor.book}
         />
       ))}
     </div>
