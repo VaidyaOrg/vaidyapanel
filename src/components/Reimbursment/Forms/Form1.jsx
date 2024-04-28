@@ -1,318 +1,99 @@
-import React from 'react'
-
+import React from 'react';
+import { Box, Typography, TextField, Button, Checkbox, FormControlLabel } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 function Form1() {
     return (
-        <>    <div className='formwid' style={{ backgroundColor: "#d9d5ed", border: "10px solid #5bbad5" }}>
-            <div className='container '>
+        <Box sx={{ p: 2, m: 4, bgcolor: 'background.paper', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', borderRadius: '12px' }}>
+            <Typography variant="h4" align="center" sx={{ pt: 2 }}>Medical Claim Form <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Outdoor Treatment</span></Typography>
 
-                <h4 className="info py-4" >MEDICAL CLAIM FORM (OUTDOOR TREATMENT) </h4>
+            <Typography variant="body1" align="center" sx={{ mt: 4 }}>
+                Application for claiming reimbursement of medical expenses incurred in connection with medical attendance/treatment for members of employees of the IIT Bhilai and their families.
+            </Typography>
 
-                <h5 className='text-center'>
-                    Application for claiming reimbursement of medical expenses incurred in connection with medical
-                    attendance/treatment for members of employees of the IIT Bhilai and their families.
-                </h5>
-                <p className="fw-bold">
-                    I. Status Information of the Claimant
-                </p>
+            <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: 'bold' }}>I. Information of the Claimant</Typography>
 
-                <form>
-                    <div className=" container row ms-3">
-                        <div className="col col-xs-12 m-3">
-                            <label className="mb-1" htmlFor="claimantName">*Claimant's Name:</label>
-                            <div className='row inpbox'>
-                                <div className='col'>
-                                    <input className='form-control me-1 mb-2' type="text" id="claimantName" name="claimantName" placeholder='First Name' />
-                                </div>
-                                <div className='col'>
-                                    <input className='form-control mb-2' type="text" id="claimantName" name="claimantName" placeholder='Last Name' />
-                                </div>
-                            </div>
-                            <label className="mb-1" htmlFor="designation">*Designation:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="designation" name="designation" />
+            <form>
+                {/* Form fields go here */}
+            </form>
 
-                            <label className="mb-1" htmlFor="department">*Department:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="department" name="department" />
+            <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: 'bold' }}>II. Information regarding the patient</Typography>
 
-                           
-                        </div>
+            <form>
+                {/* Form fields go here */}
+            </form>
 
-                        <div className="col col-xs-12 m-3">
+            <Typography variant="h6" sx={{ mt: 4 }}>Details of Treatment</Typography>
 
-                            <label className="mb-1" htmlFor="employeeCode">*Employee Code:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="employeeCode" name="employeeCode" />
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>S.No.</TableCell>
+                            <TableCell>Particulars</TableCell>
+                            <TableCell>Total Claim Submitted (Rs)</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {/* Table rows go here */}
+                    </TableBody>
+                </Table>
+            </TableContainer>
 
-                            <label className="mb-1" htmlFor="telNo">*Tel. No.:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="telNo" name="telNo" placeholder='00000 00000' />
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>S.No.</TableCell>
+                            <TableCell>Name of the Medicine or Invoice no</TableCell>
+                            <TableCell>Total Claim Submitted (Rs)</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {/* Table rows go here */}
+                    </TableBody>
+                </Table>
+            </TableContainer>
 
-                            <label className="mb-1" htmlFor="emailId">*Email ID:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="emailId" name="emailId" placeholder='name@example.com' />
+            <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-between' }}>
+                <TextField label="Total Claim submitted (A+B):" variant="outlined" size="small" />
+                <TextField label="Total no of Enclosures:" variant="outlined" size="small" />
+            </Box>
 
-                           
-                           
-                        </div>
-                    </div>
-                </form>
-                <p className="fw-bold">
-                    II. Information regarding the patient
-                </p>
-                <form>
-                    <div className="row mb-3 ms-3">
+            <Typography variant="h6" sx={{ mt: 4 }}>Attachments(Self Attested)</Typography>
 
-                        <div className="col m-3">
-                            <label className="mb-1" htmlFor="patientName">*Patient's Name:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="patientName" name="patientName" />
+            <form>
+                {/* File upload fields go here */}
+            </form>
 
-                            <label className="mb-1" htmlFor="natureOfIllness">*Nature of illness:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="natureOfIllness" name="natureOfIllness" />
+            <Typography variant="h6" sx={{ mt: 4 }}>Declaration :</Typography>
 
-                            <label className="mb-1" htmlFor="referredHospital">*Treated Hospital Name:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="referredHospital" name="referredHospital" />
-                        </div>
-                        
-                        <div className="col m-3">
-                            <label className="mb-1" htmlFor="relationship">*Relationship with patient:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="relationship" name="relationship" />
+            <Box sx={{ mt: 2 }}>
+                <Typography variant="body1">Countersigned and certified that the claim :</Typography>
+                <ol>
+                    <li>Is genuine.</li>
+                    <li>Is covered by the rules and order of the subject.</li>
+                    <li>Is supported by bills, receipt and other certificates etc.</li>
+                    <li>Was not drawn before and</li>
+                    <li>Has been sanctioned/countersigned by me.</li>
+                </ol>
+            </Box>
 
-                            <label className="mb-1" htmlFor="referringAMADate">*Name of Referring AMA:</label>
-                            <input className='form-control mb-2 inpbox' type="text" id="referringAMADate" name="referringAMADate" />
-                        </div>
-                    </div>
-                </form>
-                <h4>Details of Treatment</h4>
-                <div className='table-responsive-sm row'>
-                    <div className=' col'>
-                        <table className="table table-custom ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">S.No.</th>
-                                    <th scope="col">Particulars</th>
-                                    <th scope="col">Total Claim Submitted (Rs)</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1.1</td>
-                                    <td>Imaging/MRI/CT Scan/x-ray/sonography </td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>1.2</td>
-                                    <td> CBC/Widal/LFT/RFT</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>1.3</td>
-                                    <td>Urine-RM/Malaria</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td>1.4</td>
-                                    <td>TSH, T3, T4 Sr. Electrolytes</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>1.5</td>
-                                    <td>Any other laboratory Test/s Done</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
+            <FormControlLabel
+                control={<Checkbox />}
+                label="I hereby declare that the statement made in this application are true to the best of my knowledge and belief/and that the person for whom medical expenses were incurred is wholly dependent upon me and is not an earning member of the family."
+            />
 
-                                </tr>
-                                <tr>
-                                    <td>1.6</td>
-                                    <td>No of Consultation Charges( )</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>1.7</td>
-                                    <td> Miscellaneous Charges</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    
+            <Box sx={{ mt: 2, display: 'flex', justifyContent: 'space-between' }}>
+                <TextField label="" type="date" size="small" />
+                <TextField label="" type="file" size="small" />
+            </Box>
 
-                                </tr>
-                                <tr>
-                                    <td>1.8</td>
-                                    <td>Any Other.</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                   
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Total(A)</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                   
-                                </tr>
-                                
-                            </tbody>
-                        </table></div>
-                        <div className='col'>
-                        <table className="table table-custom ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">S.No.</th>
-                                    <th scope="col">Name of the Medicine or Invoice no</th>
-                                    <th scope="col">Total Claim Submitted (Rs)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2.1</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.2</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.3</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.4</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.5</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.6</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.7</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    <td>2.8</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                <tr>
-                                    
-                                <td>Total(B)</td>
-                                    <td><input className='claimInput form-control' type="text" value="" /></td>
-
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                                   
-                                   
-                </div>
-
-                <div className=" row d-flex-end">
-                    <span className="col col-xs-12">
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text bg-dark bg-gradient text-white" id="inputGroup-sizing-sm" >Total Claim submitted (A+B):</span>
-                            <input type="text" className="form-control" />
-                        </div>
-                    </span>
-                    <span className="col col-xs-12">
-                        <div className="input-group input-group-sm mb-3">
-                            <span className="input-group-text bg-dark bg-gradient text-white" id="inputGroup-sizing-sm">Total no of Enclosures:</span> 
-                            <input type="text" className="form-control" />
-                        </div>
-                    </span>
-                </div>
-                <h4 className="space mt-5">
-                    Attachments(Self Attested)
-                </h4>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <div className="row ms-3 mb-4">
-                        <div className="col m-3">
-                            <label className="mb-2" htmlFor="file">*IIT Bhiai Health Center Referral</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required />
-
-                            <label className="mb-2" htmlFor="file">*Original Bill Receipts</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required />
-                        </div>
-
-                        <div className="col m-3">
-                            <label className="mb-2" htmlFor="file">If dependent copy of dependent booklet</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required />
-
-                            <label className="mb-2" htmlFor="file">*Copy of Prescription</label>
-                            <input className='form-control mb-2 inpbox' type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required />
-                        </div>
-                    </div>
-                </form>
-                <br />
-               
-                <h4 className="mt-5 my-3">Declaration :</h4>
-
-                <div className=' bg-gradient p-3 mt-4' style={{ borderRadius: "20px", backgroundColor: "#aee9fa", border: "1px solid black" }}>
-                    <span>Countersigned and certified that the claim :</span>
-                    <ol>
-                        <li>
-                            Is genuine.
-                        </li>
-                        <li>
-                            Is covered by the rules and order of the subject.
-                        </li>
-                        <li>
-                            Is supported by bills,receipt and other certificates etc.
-                        </li>
-                        <li>
-                            was not drawn before and
-                        </li>
-                        <li>
-                            has been sanctioned/countersigned by me.
-                        </li>
-                    </ol>
-                </div>
-                
-                <div class="ms-2">
-                    <input class="form-check-input mt-3 mb-1" type="checkbox" value="" id="flexCheckDefault"/>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        <p> 
-                            I hereby declare that the statement made in this application are true to the best of my knowledge and belief/and that
-                            the person for whom medical expenses were incurred is wholly dependent upon me and is not an earning member of
-                            the family. </p>
-                    </label>
-                    </div>
-
-                        <div className="row">
-                            <div className="col m-3">
-                                <label htmlFor="dateInput">Date</label>
-                                <input className='form-control inpbox' type="date" id="dateInput" />
-                            </div>
-                            <div className="col m-3">
-                                <label htmlFor="signatureFile">Signature of the Claimant</label>
-                                <input className='form-control inpbox' type="file" id="signatureFile" name="signatureFile" accept="image/*" required />
-
-                            </div>
-                            <div className='text-center'>
-                            <a href="/Thankyou" type="button" class="btn btn-primary btn-lg m-3">Submit</a>
-                            </div>
-                        </div>
-                    </div >
-                </div >
-            </>
-            );
+            <Box sx={{ mt: 2, textAlign: 'center' }}>
+                <Button variant="contained" color="primary" size="large">Submit</Button>
+            </Box>
+        </Box>
+    );
 }
 
-            export default Form1
+export default Form1;

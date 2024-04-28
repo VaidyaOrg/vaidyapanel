@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-
+import { useNavigate } from 'react-router-dom';
 const ColorButton = styled(Button)(() => ({
   color: 'black',
   backgroundColor: '#ffffff',
@@ -17,6 +17,7 @@ const ColorButton = styled(Button)(() => ({
 }));
 
 const Reimbursement = () => {
+  const navigate = useNavigate();
   return (
     <div className='bg-white ml-5 mr-5 pb-6 pt-10 rounded-md pl-12 pr-12'>
       <p className="text-2xl font-semibold text-center">Medical <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">Reimbursement</span></p>
@@ -55,9 +56,9 @@ const Reimbursement = () => {
       <br />
       <br />
       <div className='flex gap-6 justify-center pb-3'>
-        <ColorButton href='vaidyapanel\src\components\Reimbursment\Forms\Form1.jsx'>Student</ColorButton>
-        <ColorButton href='vaidyapanel\src\components\Reimbursment\Forms\Form2.jsx'>Employee OPD</ColorButton>
-        <ColorButton href='vaidyapanel\src\components\Reimbursment\Forms\Form3.jsx'>Employee IPD</ColorButton>
+        <ColorButton onClick={()=>navigate('/student')}>Student</ColorButton>
+        <ColorButton onClick={()=>navigate('/empopd')}>Employee OPD</ColorButton>
+        <ColorButton onClick={()=>navigate('/empind')}>Employee IND</ColorButton>
       </div>
     </div>
   );
