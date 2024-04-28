@@ -986,26 +986,6 @@ function Form3() {
           </Box>
         </Typography>
 
-        <div>
-          <Box sx={{ mt: 2, textAlign: "center" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-          </Box>
-          <Snackbar
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            open={openSnackbar}
-            autoHideDuration={10000} // Adjust duration as needed
-            onClose={handleCloseSnackbar}
-            message="Form submitted successfully!"
-          />
-        </div>
-
         <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
           V. Bank Details:
         </Typography>
@@ -1092,8 +1072,87 @@ function Form3() {
                 fullWidth
               />
             </div>
+            <div className="flex gap-10 mt-10">
+              <Typography sx={{ marginTop: "10px", fontWeight: '600' }}>Total Amount to be paid: </Typography>
+              <TextField sx={{width: '50vw'}}
+                id="claimantFirstName"
+                variant="outlined"
+                placeholder=""
+                fullWidth
+              />
+              <TableContainer component={Paper} variant="outlined">
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Register No.
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          placeholder=""
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Serial No.:
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          placeholder=""
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+            </div>
           </div>
         </form>
+
+        <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+          VI. Declaration
+        </Typography>
+        <br />
+        <FormControlLabel
+        control={<Checkbox />}
+        label="I Certify the above pathological tests prescribed by me to arrive at the correct diagnosis."
+        />
+        <FormControlLabel
+        control={<Checkbox />}
+        label="I also certify that patient has been under treatment as prescribed by me and above medicines are purchased due to nonavailability at our health Centre."
+        />
+
+        <div>
+          <Box sx={{ mt: 4, textAlign: "center" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </Box>
+          <Snackbar
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            open={openSnackbar}
+            autoHideDuration={10000} // Adjust duration as needed
+            onClose={handleCloseSnackbar}
+            message="Form submitted successfully!"
+          />
+        </div>
       </Box>
     </>
   );
