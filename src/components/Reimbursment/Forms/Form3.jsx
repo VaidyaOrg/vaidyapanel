@@ -1,23 +1,56 @@
 import React, { useState } from "react";
-import axios from "axios";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Paper,
+} from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import { Snackbar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import { InfoOutlined } from "@mui/icons-material";
 
 function Form3() {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    // Logic for form submission
+    // For demonstration purposes, let's just open the snackbar
+    setOpenSnackbar(true);
+    navigate("/");
+  };
   const [formData, setFormData] = useState({
     claimantFirstName: "",
     claimantLastName: "",
-    claimaintID: "",
-    referenceAMA: "",
-    diagnosisName: "",
-    claimaintAge: "",
+    designation: "",
+    dept: "",
+    entitlement: "",
+    employeecode: "",
     telephoneNo: "",
-    emailID: "",
-    treatmentStart: "",
-    treatmentEnd: "",
+    emailid: "",
+    payinpayband: "",
+
+    //info about patient starts
     patientName: "",
     natureofIllness: "",
     referredHospital: "",
     relationship: "",
     referringAMADate: "",
+
+    //Details of treatment starts
     claimT_1_1: "",
     claimT_1_2: "",
     claimT_1_3: "",
@@ -26,37 +59,42 @@ function Form3() {
     claimT_1_6: "",
     claimT_1_7: "",
     claimT_1_8: "",
-    claimT_2_1_1: "",
-    claimT_2_1_2: "",
-    claimT_2_2_1: "",
-    claimT_2_2_2: "",
-    claimT_2_3_1: "",
-    claimT_2_3_2: "",
-    claimT_2_4_1: "",
-    claimT_2_4_2: "",
-    claimT_2_5_1: "",
-    claimT_2_5_2: "",
-    claimT_2_6_1: "",
-    claimT_2_6_2: "",
-    claimT_2_7_1: "",
-    claimT_2_7_2: "",
-    claimT_2_8_1: "",
-    claimT_2_8_2: "",
+    claimT_1_9: "",
+    claimT_1_10: "",
+    claimT_1_11: "",
+
+    claimT_2_1: "",
+    claimT_2_2: "",
+    claimT_2_3: "",
+    claimT_2_4: "",
+    claimT_2_5: "",
+    claimT_2_6: "",
+    claimT_2_7: "",
+    claimT_2_8: "",
+
+    claimT_3_1: "",
+    claimT_3_2: "",
+    claimT_3_3: "",
+    claimT_3_4: "",
+    claimT_3_5: "",
+    claimT_3_6: "",
+    claimT_3_7: "",
+    claimT_3_8: "",
+
+    //Attachments start
     HCReferral: "",
     BillReceipt: "",
-    IDFile: "",
+    dependentbooklet: "",
     prescriptionFile: "",
-    AccountNo: "",
-    BankName: "",
-    expdate: "",
-    IFSC: "",
-    BankBranch: "",
-    Place: "",
-    SubmissionDate: "",
-    signatureFile: ""
-    // Add other form fields here
-  });
 
+    //Bank details
+    // AccountNo: "",
+    // BankName: "",
+    // expdate: "",
+    // IFSC: "",
+    // BankBranch: "",
+    // Place: "",
+  });
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -64,817 +102,999 @@ function Form3() {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/apis/users/formfill", formData);
-      console.log(response.data);
-      // Handle success, e.g., show a success message to the user
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      console.log(error);
-      // Handle error, e.g., show an error message to the user
-    }
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
   };
   return (
     <>
-      {" "}
-      <div
-        className="formwid"
-        style={{ backgroundColor: "#d9d5ed", border: "10px solid #5bbad5" }}
+      <Box
+        sx={{
+          p: 2,
+          m: 4,
+          bgcolor: "background.paper",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          borderRadius: "12px",
+        }}
       >
-        <div className="container ">
-          <h4 className="info py-4">MEDICAL CLAIM FORM (STUDENT) </h4>
+        <Typography variant="h4" align="center" sx={{ pt: 2 }}>
+          Medical Claim Form{" "}
+          <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
+            for Students
+          </span>
+        </Typography>
 
-          <h5 className="text-center">
-            Application for claiming reimbursement of medical expenses incurred
-            in connection with medical attendance/treatment for students of IIT
-            Bhilai.
-          </h5>
-          <p className="fw-bold">I. Status Information of the Claimant</p>
+        <Typography variant="body1" align="center" sx={{ mt: 4 }}>
+          Application for claiming reimbursement of medical expenses incurred in
+          connection with medical attendance/treatment for members of employees
+          of the IIT Bhilai and their families.
+        </Typography>
 
-          <form onSubmit={handleSubmit}>
-            <div className=" container row ms-3">
-              <div className="col col-xs-12 m-3">
-                <label className="mb-1" htmlFor="claimantName">
-                  *Claimant's Name:
-                </label>
-                <div className="row inpbox">
-                  <div className="col">
-                    <input className="form-control me-1 mb-2" type="text" id="claimantFirstName" name="claimantFirstName" // placeholder="First Name"
-                      value={formData.claimantFirstName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col">
-                    <input
-                      className="form-control mb-2"
-                      type="text"
-                      id="claimantLastName"
-                      name="claimantLastName"
-                      // placeholder="Last Name"
-                      value={formData.claimantLastName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <label className="mb-1">ID:</label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="claimaintID"
-                  name="claimaintID"
-                  value={formData.claimaintID}
-                  onChange={handleChange}
-                />
+        <Typography
+          variant="subtitle1"
+          sx={{ mt: 4, fontWeight: "bold" }}
+          className="pb-4"
+        >
+          I. Student Details
+        </Typography>
 
-                <label className="mb-1">Name of reference AMA:</label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="referenceAMA"
-                  name="referenceAMA"
-                  value={formData.referenceAMA}
-                  onChange={handleChange}
-                />
+        <form>
+          <div className=" container row ms-3">
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        *Name of Student/Patient:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <label htmlFor="empid" className="mb-1">
+                        *Age:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField id="empid" variant="outlined" fullWidth />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="designation" className="mb-1">
+                        *ID No.:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <label htmlFor="department" className="mb-1">
+                        *Course/Program :
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField id="department" variant="outlined" fullWidth />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        *Name of reference AMA:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName" //Select resource option need to be placed here.
+                        variant="outlined"
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <label htmlFor="designation" className="mb-1">
+                        *Contact No.:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="designation"
+                        variant="outlined"
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        </form>
 
-                <label className="mb-1">
-                  Name of the illness or diagnosis:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="diagnosisName"
-                  name="diagnosisName"
-                  value={formData.diagnosisName}
-                  onChange={handleChange}
-                />
-              </div>
+        <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+          II. Certified that I have taken treatment for the following:
+        </Typography>
 
-              <div className="col col-xs-12 m-3">
-                <label className="mb-1">Age:</label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="claimaintAge"
-                  name="claimaintAge"
-                  value={formData.claimaintAge}
-                  onChange={handleChange}
-                />
-
-                <label className="mb-1" htmlFor="telephoneNo">
-                  Course/Program:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="telephoneNo"
-                  name="telephoneNo"
-                  value={formData.telephoneNo}
-                  onChange={handleChange}
-                  placeholder="00000 00000"
-                />
-
-                <label className="mb-1" htmlFor="emailId">
-                  Contact No.:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="emailId"
-                  name="emailId"
-                  value={formData.emailID}
-                  onChange={handleChange}
-                  placeholder="name@example.com"
-                />
-
-                <label className="mb-1" htmlFor="claimantName">
-                  Treatment start and end
-                </label>
-                <div className="row inpbox">
-                  <div className="col">
-                    <input
-                      className="form-control me-1 mb-2"
-                      type="date"
-                      id="treatmentStart"
-                      name="treatmentStart"
-                      value={formData.treatmentStart}
-                      onChange={handleChange}
-                      placeholder="From"
-                      style={{ width: "100px" }}
-                    />
-                  </div>
-                  <div className="col">
-                    <input
-                      className="form-control mb-2"
-                      type="date"
-                      id="treatmentEnd"
-                      name="treatmentEnd"
-                      value={formData.treatmentEnd}
-                      onChange={handleChange}
-                      placeholder="To"
-                      style={{ width: "100px" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-          <p className="fw-bold">II. Information regarding the patient</p>
+        <form>
+          <div className=" container row ms-3">
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        Name of the illness/Diagnosis:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="designation" className="mb-1">
+                        Duration of the Treatment*
+                      </label>
+                    </TableCell>
+                    <TableCell style={{ display: "flex", gap: "20px" }}>
+                      <TextField
+                        type="date"
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                      <TextField
+                        type="date"
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        </form>
+        <br />
+        <Typography
+          startDecorator={<InfoOutlined />}
+          mb={2}
+          sx={{ marginLeft: "10px" }}
+        >
+          *This has to be claimed within one month of duration of treatment
+        </Typography>
+        <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+          III. Details of treatment and claim of reimbursement:
+        </Typography>
+        <div className="flex gap-10">
           <form>
-            <div className="row mb-3 ms-3">
-              <div className="col m-3">
-                <label className="mb-1" htmlFor="patientName">
-                  *Patient's Name:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="patientName"
-                  name="patientName"
-                  value={formData.patientName}
-                  onChange={handleChange}
-                />
-
-                <label className="mb-1" htmlFor="natureOfIllness">
-                  *Nature of illness:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="natureOfIllness"
-                  name="natureOfIllness"
-                  value={formData.natureofIllness}
-                  onChange={handleChange}
-                />
-
-                <label className="mb-1" htmlFor="referredHospital">
-                  *Treated Hospital Name:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="referredHospital"
-                  name="referredHospital"
-                  value={formData.referredHospital}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="col m-3">
-                <label className="mb-1" htmlFor="relationship">
-                  *Relationship with patient:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="relationship"
-                  name="relationship"
-                  value={formData.relationship}
-                  onChange={handleChange}
-                />
-
-                <label className="mb-1" htmlFor="referringAMADate">
-                  *Name of Referring AMA:
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="text"
-                  id="referringAMADate"
-                  name="referringAMADate"
-                  value={formData.referringAMADate}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className=" container row ms-3">
+              <TableContainer component={Paper} variant="outlined">
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Sr. No
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Particulars
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Total Claim submitted (in Rs)
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Total Amount Recommended(in Rs) (Office Use Only)
+                        </label>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.1
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Imaging/MRI/CT Scan/x-ray/sonography
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.2
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          CBC/Widal/LFT/RFT
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.3
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Urine-RM/Malaria
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.4
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          TSH, T3, T4, Sr. Electrolytes
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.5
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Any other laboratory Test/s Done
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.6
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          No of Consultation Charges( )
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.7
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Miscellaneous Charges
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          1.8
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Any Other
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell></TableCell>
+                      <TableCell>
+                        <label
+                          htmlFor="claimantName"
+                          className="mb-1 font-semibold"
+                        >
+                          Total (A)
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </div>
           </form>
-          <h4>Details of Treatment</h4>
-          <div className="table-responsive-sm row">
-            <div className=" col">
-              <table className="table table-custom ">
-                <thead>
-                  <tr>
-                    <th scope="col">S.No.</th>
-                    <th scope="col">Particulars</th>
-                    <th scope="col">Total Claim Submitted (Rs)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1.1</td>
-                    <td>Imaging/MRI/CT Scan/x-ray/sonography </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_1"
-                        name="claimT_1_1"
-                        value={formData.claimT_1_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.2</td>
-                    <td> CBC/Widal/LFT/RFT</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_2"
-                        name="claimT_1_2"
-                        value={formData.claimT_1_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.3</td>
-                    <td>Urine-RM/Malaria</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_3"
-                        name="claimT_1_3"
-                        value={formData.claimT_1_3}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.4</td>
-                    <td>TSH, T3, T4 Sr. Electrolytes</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_4"
-                        name="claimT_1_4"
-                        value={formData.claimT_1_4}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.5</td>
-                    <td>Any other laboratory Test/s Done</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_5"
-                        name="claimT_1_5"
-                        value={formData.claimT_1_5}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.6</td>
-                    <td>No of Consultation Charges( )</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_6"
-                        name="claimT_1_6"
-                        value={formData.claimT_1_6}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.7</td>
-                    <td> Miscellaneous Charges</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_7"
-                        name="claimT_1_7"
-                        value={formData.claimT_1_7}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1.8</td>
-                    <td>Any Other.</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_1_8"
-                        name="claimT_1_8"
-                        value={formData.claimT_1_8}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Total(A)</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                      // Should Calculate automatically
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="col">
-              <table className="table table-custom ">
-                <thead>
-                  <tr>
-                    <th scope="col">S.No.</th>
-                    <th scope="col">Name of the Medicine or Invoice no</th>
-                    <th scope="col">Total Claim Submitted (Rs)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2.1</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_1_1"
-                        name="claimT_2_1_1"
-                        value={formData.claimT_2_1_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_1_2"
-                        name="claimT_2_1_2"
-                        value={formData.claimT_2_1_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.2</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_2_1"
-                        name="claimT_2_2_1"
-                        value={formData.claimT_2_2_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_2_2"
-                        name="claimT_2_2_2"
-                        value={formData.claimT_2_2_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.3</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_3_1"
-                        name="claimT_2_3_1"
-                        value={formData.claimT_2_3_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_3_2"
-                        name="claimT_2_3_2"
-                        value={formData.claimT_2_3_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.4</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_4_1"
-                        name="claimT_2_4_1"
-                        value={formData.claimT_2_4_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_4_2"
-                        name="claimT_2_4_2"
-                        value={formData.claimT_2_4_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.5</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_5_1"
-                        name="claimT_2_5_1"
-                        value={formData.claimT_2_5_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_5_2"
-                        name="claimT_2_5_2"
-                        value={formData.claimT_2_5_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.6</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_6_1"
-                        name="claimT_2_6_1"
-                        value={formData.claimT_2_6_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_6_2"
-                        name="claimT_2_6_2"
-                        value={formData.claimT_2_6_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.7</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_7_1"
-                        name="claimT_2_7_1"
-                        value={formData.claimT_2_7_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_7_2"
-                        name="claimT_2_7_2"
-                        value={formData.claimT_2_7_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2.8</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_8_1"
-                        name="claimT_2_8_1"
-                        value={formData.claimT_2_8_1}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                        id="claimT_2_8_2"
-                        name="claimT_2_8_2"
-                        value={formData.claimT_2_8_2}
-                        onChange={handleChange}
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Total(B)</td>
-                    <td>
-                      <input
-                        className="claimInput form-control"
-                        type="text"
-                      // Should Calculate automatically
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className=" row d-flex-end">
-            <span className="col col-xs-12">
-              <div className="input-group input-group-sm mb-3">
-                <span
-                  className="input-group-text bg-dark bg-gradient text-white"
-                  id="inputGroup-sizing-sm"
-                >
-                  Total Claim submitted (A+B):
-                  {/* // Should Calculate automatically */}
-                </span>
-                <input type="text" className="form-control" />
-              </div>
-            </span>
-            <span className="col col-xs-12">
-              <div className="input-group input-group-sm mb-3">
-                <span
-                  className="input-group-text bg-dark bg-gradient text-white"
-                  id="inputGroup-sizing-sm"
-                >
-                  Total no of Enclosures:
-                  {/* // Should Calculate automatically */}
-                </span>
-                <input type="text" className="form-control" />
-              </div>
-            </span>
-          </div>
-          <h4 className="space mt-5">Attachments(Self Attested)</h4>
-          <form
-            action="/upload"
-            method="post"
-            enctype="multipart/form-data"
-            onSubmit={handleSubmit}
-          >
-            <div className="row ms-3 mb-4">
-              <div className="col m-3">
-                <label className="mb-2" htmlFor="file">
-                  *IIT Bhiai Health Center Referral
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="file"
-                  id="HCReferral"
-                  name="HCReferral"
-                  value={formData.HCReferral}
-                  onChange={handleChange}
-                  accept=".jpg, .jpeg, .png"
-                  required
-                />
-
-                <label className="mb-2" htmlFor="file">
-                  *Original Bill Receipts
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="file"
-                  id="BillReceipt"
-                  name="BillReceipt"
-                  value={formData.BillReceipt}
-                  onChange={handleChange}
-                  accept=".jpg, .jpeg, .png"
-                  required
-                />
-              </div>
-
-              <div className="col m-3">
-                <label className="mb-2" htmlFor="file">
-                  ID Card
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="file"
-                  id="IDFile"
-                  name="IDFile"
-                  value={formData.IDFile}
-                  onChange={handleChange}
-                  accept=".jpg, .jpeg, .png"
-                  required
-                />
-
-                <label className="mb-2" htmlFor="file">
-                  *Copy of Prescription
-                </label>
-                <input
-                  className="form-control mb-2 inpbox"
-                  type="file"
-                  id="prescriptionFile"
-                  name="prescriptionFile"
-                  value={formData.prescriptionFile}
-                  onChange={handleChange}
-                  accept=".jpg, .jpeg, .png"
-                  required
-                />
-              </div>
+          <form className="mr-[5vw]">
+            <div className=" container row ms-3">
+              <TableContainer component={Paper} variant="outlined">
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Sr. No
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Name of the Medicine OR Invoice No
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Total Claim submitted (in Rs)
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          Total Amount Recommended(in Rs) (Office Use Only)
+                        </label>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.1
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.2
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.3
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.4
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.5
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.6
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.7
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        <label htmlFor="claimantName" className="mb-1">
+                          2.8
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell></TableCell>
+                      <TableCell>
+                        <label
+                          htmlFor="claimantName"
+                          className="mb-1 font-semibold"
+                        >
+                          Total (B)
+                        </label>
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <TextField
+                          id="claimantFirstName"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </div>
           </form>
-          <br />
-
-          <h4 className="space mt-5">Bank Details</h4>
-
-          <div class="container mt-4">
-            <div class="row mb-4">
-              {/* <!-- Left Section --> */}
-              <div class="col-md-6 custom-side-margin-left">
-                <div class="row mb-4">
-                  <div class="col-sm-4"> A/c No.</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Input"
-                      id="AccountNo"
-                      name="AccountNo"
-                      value={formData.AccountNo}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                  <div class="col-sm-4">Bank</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="BankName"
-                      name="BankName"
-                      value={formData.BankName}
-                      onChange={handleChange}
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                  <div class="col-sm-4">Date</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="expdate"
-                      name="expdate"
-                      value={formData.expdate}
-                      onChange={handleChange}
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
-
-                {/* Left section ends */}
-              </div>
-
-              {/* <!-- Right Section --> */}
-              <div class="col-md-6 custom-side-margin-right">
-                <div class="row mb-4">
-                  <div class="col-sm-4">IFSC Code</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="IFSC"
-                      name="IFSC"
-                      value={formData.IFSC}
-                      onChange={handleChange}
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                  <div class="col-sm-4">Branch</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="BankBranch"
-                      name="BankBranch"
-                      value={formData.BankBranch}
-                      onChange={handleChange}
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                  <div class="col-sm-4">Place</div>
-                  <div class="col-sm-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="Place"
-                      name="Place"
-                      value={formData.Place}
-                      onChange={handleChange}
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
-
-                {/* Right section ends */}
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col m-3">
-              <label htmlFor="dateInput">Date</label>
-              <input
-                className="form-control inpbox"
-                type="date"
-                id="SubmissionDate"
-                name="SubmissionDate"
-                value={formData.SubmissionDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col m-3">
-              <label htmlFor="signatureFile">Signature of the Claimant</label>
-              <input
-                className="form-control inpbox"
-                type="file"
-                id="signatureFile"
-                name="signatureFile"
-                value={formData.signatureFile}
-                onChange={handleChange}
-                accept="image/*"
-                required
-              />
-            </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="btn btn-primary btn-lg m-3"
-                onClick={handleSubmit}
-              >
-                Submit
-              </button>
-            </div>
-
-          </div>
         </div>
-      </div>
+
+        <form>
+          <div className=" container row ms-3 w-full">
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <label
+                        htmlFor="claimantName"
+                        className="mb-1 font-semibold"
+                      >
+                        Total Claim Submitted (A+B)
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label
+                        htmlFor="designation"
+                        className="mb-1 font-semibold"
+                      >
+                        Total No. of Enclosures
+                      </label>
+                    </TableCell>
+                    <TableCell style={{ display: "flex", gap: "20px" }}>
+                      <TextField
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        </form>
+        <p className="font-bold text-center mt-2">Office use only</p>
+        <form>
+          <div className=" container row ms-3">
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <label
+                        htmlFor="designation"
+                        className="mb-1 font-semibold"
+                      >
+                        Advance Taken:
+                      </label>
+                    </TableCell>
+                    <TableCell style={{ display: "flex", gap: "20px" }}>
+                      <TextField
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label
+                        htmlFor="designation"
+                        className="mb-1 font-semibold"
+                      >
+                        Total Amount Recommended:
+                      </label>
+                    </TableCell>
+                    <TableCell style={{ display: "flex", gap: "20px" }}>
+                      <TextField
+                        id="designation"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        </form>
+        <br />
+
+        <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+          IV. Details of treatment and claim of reimbursement:
+        </Typography>
+        <Typography>
+          <Box sx={{ mt: 2, display: "flex", gap: "20vw" }}>
+            <List
+              component="ol"
+              marker="decimal"
+              sx={{ listStyleType: "disc", marginLeft: "20px" }}
+            >
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  marker="decimal"
+                  sx={{ display: "flex", gap: "10px" }}
+                >
+                  <Typography>
+                    Referral letter by Medical officer of IIT Bhilai Health
+                    Centre.
+                  </Typography>
+                  <TextField label="" type="file" size="small" />
+                </ListItemText>
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  marker="decimal"
+                  sx={{ display: "flex", gap: "10px" }}
+                >
+                  <Typography>Copy of prescriptions.</Typography>
+                  <TextField label="" type="file" size="small" />
+                </ListItemText>
+              </ListItem>
+            </List>
+            <List
+              component="ol"
+              marker="decimal"
+              sx={{ listStyleType: "disc", marginLeft: "20px" }}
+            >
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  marker="decimal"
+                  sx={{ display: "flex", gap: "10px" }}
+                >
+                  <Typography>Original cash memos/receipts.</Typography>
+                  <TextField label="" type="file" size="small" />
+                </ListItemText>
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  marker="decimal"
+                  sx={{ display: "flex", gap: "10px" }}
+                >
+                  <Typography>Copy of ID Card.</Typography>
+                  <TextField label="" type="file" size="small" />
+                </ListItemText>
+              </ListItem>
+            </List>
+          </Box>
+        </Typography>
+
+        <div>
+          <Box sx={{ mt: 2, textAlign: "center" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </Box>
+          <Snackbar
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            open={openSnackbar}
+            autoHideDuration={10000} // Adjust duration as needed
+            onClose={handleCloseSnackbar}
+            message="Form submitted successfully!"
+          />
+        </div>
+
+        <Typography variant="subtitle1" sx={{ mt: 4, fontWeight: "bold" }}>
+          V. Bank Details:
+        </Typography>
+        <br />
+        <form>
+          <div className=" container row ms-3">
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        Name and A/c No:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        IFSC Code:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        Bank:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <label htmlFor="claimantName" className="mb-1">
+                        Branch:
+                      </label>
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="claimantFirstName"
+                        variant="outlined"
+                        placeholder=""
+                        fullWidth
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <br />
+            <div className="flex gap-10 ml-5">
+              <Typography sx={{ marginTop: "10px" }}>Date</Typography>
+              <TextField
+                id="claimantFirstName"
+                type="date"
+                variant="outlined"
+                placeholder=""
+                fullWidth
+              />
+              <Typography sx={{ marginTop: "10px" }}>Place</Typography>
+              <TextField
+                id="claimantFirstName"
+                variant="outlined"
+                placeholder=""
+                fullWidth
+              />
+            </div>
+          </div>
+        </form>
+      </Box>
     </>
   );
 }
