@@ -2,7 +2,7 @@ import React from 'react'
 import Header from "../../components/Layout/Main/Header";
 import Loader from "../../components/Layout/Loader";
 import Footer from "../../components/Layout/Main/Footer";
-import About from '../../components/About/About';
+import Form1 from '../../components/Reimbursment/Forms/Form1';
 import { useSelector } from "react-redux";
 
 const EmpOPD = () => {
@@ -14,7 +14,7 @@ const EmpOPD = () => {
     ) : (
       <div>
         <Header activeHeading={1} />
-        <About />
+        <Form1/>
         <Footer/>
       </div>
     )}
