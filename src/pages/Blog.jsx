@@ -2,7 +2,7 @@ import { skincare, fitness, women, ayurveda, homeo, blog } from "../Assests";
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { TextField, Button, InputLabel } from '@material-ui/core';
+import { TextField, Button, InputLabel } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Footer from "../components/Layout/Footer";
@@ -12,21 +12,21 @@ import { server } from "../server";
 const MyTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
-    background-color: black; 
+    background-color: black;
     padding: 0 8px; /* Adjust padding for better visibility */
     border-radius: ${(props) =>
-    props.hasSearchText
-      ? "50px 50px 0 0"
-      : "50px"}; /* Apply different border-radius if there is search text */
+      props.hasSearchText
+        ? "50px 50px 0 0"
+        : "50px"}; /* Apply different border-radius if there is search text */
   }
   &label {
     background-color: #black;
   }
   & .MuiOutlinedInput-root {
     border-radius: ${(props) =>
-    props.hasSearchText
-      ? "50px 50px 0 0"
-      : "50px"}; /* Apply different border-radius if there is search text */
+      props.hasSearchText
+        ? "50px 50px 0 0"
+        : "50px"}; /* Apply different border-radius if there is search text */
     border: 1px solid #000;
     &.Mui-focused {
       fieldset {
@@ -45,10 +45,8 @@ function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(
-          `${server}/blog/blog`
-        );
-        console.log(response.data)
+        const response = await axios.get(`${server}/blog/blog`);
+        console.log(response.data);
         setArticles(response.data || []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -149,21 +147,23 @@ function Blogs() {
     <div className="mt-8 min-h-screen overflow-hidden ">
       <div>
         <Header activeHeading={6} />
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          textAlign: "center",
-        }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+          className={`d-flex justify-content-center pt-20 ${styles.heading}`}
+        >
           <h1 className="texthead leading-relaxed font-[600]">
-            Sort by {" "}
+            Sort by{" "}
             <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
               Tags
             </span>
           </h1>
         </div>
       </div>
-      <div className="flex justify-between p-10">
+      <div className="flex justify-center gap-60">
         <div
           className="text-center"
           onClick={() => handleTagFilter("skincare")}
@@ -232,7 +232,11 @@ function Blogs() {
             variant="contained"
             onClick={clearTagFilter}
             className="ml-4 h-10"
-            style={{ color: "#fff", backgroundColor: "#49B9C8", marginLeft: "10px" }}
+            style={{
+              color: "#fff",
+              backgroundColor: "#49B9C8",
+              marginLeft: "10px",
+            }}
           >
             Clear Filter
           </Button>
@@ -262,12 +266,14 @@ function Blogs() {
         <div className=" md:flex flex-row justify-between mx-4 mb-4">
           <div className="mt-8 animate__animated animate__backInLeft animate__delay-1s md:w-4/5 md:pl-[120px]">
             <div className="text-black border-b-4 pb-8 p-2 pt-8 border-white border-opacity-50 text-xl md:text-[45px] font-semibold">
-              <div style={{
-                display: "flex",
-                justifyContent: "center",
-                textAlign: "center",
-              }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
-
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+                className={`d-flex justify-content-center pt-20 ${styles.heading}`}
+              >
                 <h1 className="texthead leading-relaxed font-[600]">
                   Latest{" "}
                   <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
@@ -297,7 +303,10 @@ function Blogs() {
                             {article.tag}
                           </div>
                           <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                            {article.date && new Date(article.date).toLocaleDateString("en-GB")}
+                            {article.date &&
+                              new Date(article.date).toLocaleDateString(
+                                "en-GB"
+                              )}
                           </div>
                         </div>
                         <div className="text-center text-black text-[13px] font-bold leading-none">
@@ -319,12 +328,14 @@ function Blogs() {
               )}
             </div>
             <div>
-              <div style={{
-                display: "flex",
-                justifyContent: "center",
-                textAlign: "center",
-              }} className={`d-flex justify-content-center pt-20 ${styles.heading}`}>
-
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+                className={`d-flex justify-content-center pt-20 ${styles.heading}`}
+              >
                 <h1 className="texthead leading-relaxed font-[600]">
                   Older{" "}
                   <span className="bg-opacity rounded-md text-[#fff] bg-[#49B9C8] px-1 py-1">
@@ -335,36 +346,37 @@ function Blogs() {
               {getFilteredOlderBlogsArray().length > 0 ? (
                 getFilteredOlderBlogsArray().map((article) => (
                   <div
-                    className="mt-8 md:flex md:mx-0 mx-6 flex-row gap-0 md:gap-6 cursor-pointer"
+                    className="mt-8 md:flex md:mx-0 mx-4 flex-row justify-between gap-0 md:gap-6 cursor-pointer"
                     key={article.id}
                     onClick={() => navigate(`/blogs/${article._id}`)}
                   >
-                    <div className=" md:px-0 px-2 md:py-0 py-4 rounded-xl flex justify-between">
-                    <div className="mt-8 text-black text-sm md:text-[28px] font-medium md:leading-9">
-                        {article.title}
-                      </div>
-                      <div className="text-black text-opacity-50 text-sm md:text-lg font-normal md:leading-[27px]">
-                        {article.description}
-                      </div>
+                    <div className="md:bg-neutral-900 md:px-0 p-2 rounded-xl bg-white h-[30vh] w-full ">
                       <div className="flex gap-4 items-center">
                         <div className="flex">
-                          <div className="bg-gradient-to-r px-3 py-2 from-sky-500 to-sky-600 rounded-tl-md rounded-bl-md items-center text-center text-black text-[13px] font-bold uppercase leading-none tracking-wide">
+                          <div className="bg-blue-500 shadow-md px-3 py-2 bg-black rounded-tl-md rounded-bl-md items-center text-center text-black text-[13px] font-bold uppercase leading-none tracking-wide">
                             {article.tag}
                           </div>
-                          <div className="px-3 pt-2 pb-2.5 bg-indigo-100 rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
-                            {article.date && new Date(article.date).toLocaleDateString("en-GB")}
+
+                          <div className="px-3 pt-2 pb-2.5 bg-blue-100 shadow-md rounded-tr-md rounded-br-md justify-center items-center text-center text-blue-950 text-[13px] font-medium uppercase leading-none">
+                            {article.date}
                           </div>
                         </div>
                         <div className="text-center text-black text-[13px] font-bold leading-none">
                           {article.time} read
                         </div>
                       </div>
-
-                      
+                      <a href={`/blogs/${article.id}`}>
+                        <div className="mt-8 text-black text-sm md:text-[28px] font-medium md:leading-9 p-3">
+                          {article.title}
+                        </div>
+                        <div className="text-black text-opacity-50 text-sm md:text-lg font-normal md:leading-[27px] p-3">
+                          {article.description}
+                        </div>
+                      </a>
                     </div>
                     <div>
                       <img
-                        className="w-[550px] h-[220px]"
+                        className="w-[300px] h-[20vh]"
                         src={article.image ? article.image : blog}
                         alt="blogimage"
                       />
